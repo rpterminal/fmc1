@@ -1,0 +1,81 @@
+x2.2. 8 ∤ 12 porque, se existisse um inteiro u tal que 12 = 8u, então u teria que ser 12/8 = 1.5. Como 1.5 não é um número inteiro (1.5 ∉ ℤ), tal inteiro u não existe.
+
+x2.3. (∃a,b,m ∈ ℤ)[(a | m ∧ b | m) ∧ ¬(ab | m)]
+Escolho a = 6, b = 4, m = 12. --Dados: a = 6, b = 4, m = 12; Alvo: (6 | 12 ∧ 4 | 12) ∧ ¬(6 ⋅ 4 | 12)
+Split.
+Parte-L: --Alvo: 6 | 12 ∧ 4 | 12
+  Split.
+  Parte-L: --Alvo: 6 | 12
+    Imediato.
+  Parte-R: --Alvo: 4 | 12
+    Imediato.
+Parte-R: --Alvo: ¬(6 ⋅ 4 | 12)
+  Suponha 24 | 12. --Dados: 12 = 24k; Alvo: ⊥
+  Resolvendo para k: Int: k = 12/24 = 0.5
+  0.5 ∉ ℤ.
+  Contradição.
+∎
+
+x2.4. i. (∃a,b,c ∈ ℤ)[(a | b + c) ∧ ¬(a | b ∧ a | c)]
+Escolho a = 6, b = 4, c = 2. --Dados: a = 6, b = 4, c = 2; Alvo: 6 | 4 + 2 ∧ ¬(6 | 4 ∧ 6 | 2)
+Split.
+Parte-L: --Alvo: 6 | 6
+  Imediato.
+Parte-R: --Alvo: ¬(6 | 4 ∧ 6 | 2)
+  Suponha 6 | 4 ∧ 6 | 2. --Dados: 6 | 4 ∧ 6 | 2; Alvo: ⊥
+  Ext-L em 6 | 4 ∧ 6 | 2. --Dados: 6 | 4
+  Resolvendo para k: Int: k = 4/6
+  k ∉ ℤ.
+  Contradição.
+∎
+ii. (∃a,b,c ∈ ℤ)[(a | b+c ∧ a | b-c) ∧ ¬(a | b)]
+Escolho a = 6, b = 3, c = 3. --Dados: a = 6, b = 3, c = 3; Alvo: (6 | 3+3 ∧ 6 | 3-3) ∧ ¬(6 | 3)
+Split.
+Parte-L: --Alvo: 6 | 3 + 3 ∧ 6 | 3 - 3
+  Split.
+  Parte-L: --Alvo 6 | 6
+    Imediato.
+  Parte-R: 6 | 0
+    Imediato.
+Parte-R: --Alvo: ¬(6 | 3)
+  Suponha 6 | 3. --Dados: 6 | 3; Alvo: ⊥
+  Resolvendo para k: Int: 3 = 6k = 3/6 = k
+  k ∉ ℤ.
+  Contradição.
+∎
+iii. (∀a,b,c ∈ ℤ)[(a | b + c ∧ a | b + 2c) ⇒ a | b]
+Sejam a, b, c: Int. --Dados: a: Int, b: Int, c: Int; Alvo: (a | b + c ∧ a | b + 2c) ⇒ a | b
+Suponha h: a | b + c ∧ a | b + 2c. --Dados: h: a | b + c ∧ a | b + 2c; Alvo: a | b
+Ext-L em h para obter h1: a | b + c. --Dados: a | b + c
+Ext-R em h para obter h2: a | b + 2c. --Dados: a | b + 2c
+Pela definição em h1 e h2, existem k₁, k₂ ∈ ℤ tais que:
+  b + c = ak₁ --Dados: b + c = ak₁
+  b + 2c = ak₂ --Dados: b + 2c = ak₂
+Vou demonstrar: a | c --Alvo: a | c
+  Calculamos:
+    c = (b + 2c) - (b + c)
+    = ak₂ - ak₁
+    = a(k₂ - k₁) --Dados: c = a(k₂ - k₁)
+iv. (∃a,b,c ∈ ℤ)[(a | b + c ∧ a | 2b + 2c) ∧ ¬(a | b)]
+Escolho a = 5, b = 2, c = 3. --Dados: a = 5, b = 2, c = 3; Alvo: (5 | 2+3 ∧ 5 | 2(2)+2(3)) ∧ ¬(5 | 2)
+Split.
+Parte-L: --Alvo: 5 | 5 ∧ 5 | 10
+  Split.
+  Parte-L: --Alvo: 5 | 5
+    Imediato.
+  Parte-R: --Alvo: 5 | 10
+    Imediato.
+Parte-R: --Alvo: ¬(5 | 2)
+  Suponha 5 | 2. --Dados: 5 | 2
+  Resolvendo para k: Int: 2 = 5k, 2/5 = k
+  k ∉ ℤ.
+  Contradição.
+∎
+v. (∀a,b,c ∈ ℤ)[(a | b + c ∧ a | 2b + 3c) ⇒ a | 3b + 2c]
+Sejam a, b, c: Int. --Dados: a: Int, b: Int, c: Int; Alvo: (a | b + c ∧ a | 2b + 3c) ⇒ a | 3b + 2c
+Suponha h: a | b + c ∧ a | 2b + 3c. --Dados: a | b + c ∧ a | 2b + 3c; Alvo: a | 3b + 2c
+Ext-L em h para obter h1: a | b + c. --Dados: a | b + c
+Ext-R em h para obter h2: a | 2b + 3c. --Dados: a | 2b + 3c
+
+x2.5. Se, então = ⇒
+Como, logo = ⇐

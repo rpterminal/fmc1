@@ -1,0 +1,570 @@
+1.1. P ⇒ ¬¬P
+Suponha P. --Dados: P; Alvo: ¬¬P
+Suponha ¬P. --Dados: ¬P; Alvo: ⊥
+Aplico ¬P em P para obter ⊥.
+Contradição. ∎
+1.2. ¬¬P ⇒ P
+Suponha ¬¬P. --Dados: ¬¬P; Alvo: P
+LEM[P]. --Dados: P ∨ ¬P
+Separo em casos a partir de P ∨ ¬P.
+Caso L: --Dados: P
+  Imediato em P.
+Caso R: --Dados: ¬P
+  Aplico ¬¬P em ¬P. --Dados: ⊥
+  Contradição.
+∎⛦
+
+2.1. (P ∨ Q) ⇒ (Q ∨ P)
+Suponha poq: P ∨ Q. --Dados: poq: P ∨ Q; Alvo: Q ∨ P
+Separe em casos a partir de poq.
+Caso L: --Dados: P
+  Esc-R. --Alvo: P
+  Imediato.
+Caso R: --Dados: Q
+  Esc-L. --Alvo: Q
+  Imediato.
+∎
+2.2. (P ∧ Q) ⇒ (Q ∧ P)
+Suponha peq: P ∧ Q. --Dados: pq: P ∧ Q; Alvo: Q ∧ P
+Split.
+Parte-L: --Alvo: Q
+  Ext-R pq para obter q: Q. --Dados: q: Q
+  Imediato q.
+Parte-R: --Alvo: P
+  Ext-L pq para obter p: P. --Dados: p: P
+  Imediato p.
+∎
+
+3.1. (P ⇒ Q) ⇒ (¬P ∨ Q)
+Suponha P ⇒ Q. --Dados: P ⇒ Q; Alvo: ¬P ∨ Q
+LEM[P]. --Dados: P ∨ ¬P
+Separo em casos a partir de P ∨ ¬P
+Caso L: --Dados: P
+  Esc-R. --Alvo: Q
+  Aplico P ⇒ Q em P para obter Q. --Dados: Q
+  Imediato em Q.
+Caso R: --Dados: ¬P
+  Esc-L. --Alvo: ¬P
+  Imediato em ¬P.
+∎⛦
+3.2. (P ⇒ Q) ⇐ (¬P ∨ Q)
+Suponha ¬P ∨ Q. --Dados: ¬P ∨ Q; Alvo: P ⇒ Q
+Suponha P. --Dados: P; Alvo: Q
+Separe em casos a partir de ¬P ∨ Q
+Caso L: --Dados: ¬P
+  Aplico ¬P em P para obter ⊥. --Dados: ⊥
+  Contradição.
+Caso R: --Dados: Q
+  Imediato.
+∎
+3.3. (P ∨ Q) ⇒ (¬P ⇒ Q)
+Suponha P ∨ Q. --Dados: P ∨ Q; Alvo: ¬P ⇒ Q
+Suponha ¬P. --Dados: ¬P; Alvo: Q
+Separe em casos a partir de P ∨ Q
+Caso L: --Dados: P
+  Aplico ¬P em P para obter ⊥.
+  Contradição.
+Caso R: --Dados: Q
+  Imediato em Q.
+∎
+3.4. (P ∨ Q) ⇐ (¬P ⇒ Q)
+Suponha ¬P ⇒ Q. --Dados: ¬P ⇒ Q; Alvo: P ∨ Q
+LEM[P]. --Dados: P ∨ ¬P
+Separo em casos a partir de P ∨ ¬P.
+Caso L: --Dados: P
+  Esc-L. --Alvo: P
+  Imediato em P.
+Caso R: --Dados: ¬P
+  Esc-R. --Alvo: Q
+  Aplico ¬P ⇒ Q em ¬P para obter Q. --Dados: Q
+  Imediato em Q.
+∎⛦
+
+4.1. (P ⇒ Q) ⇒ (¬Q ⇒ ¬P)
+Suponha P ⇒ Q. --Dados: P ⇒ Q; Alvo: ¬Q ⇒ ¬P
+Suponha ¬Q. --Dados: ¬Q; Alvo: ¬P
+Suponha P. --Dados: P; Alvo: ⊥
+Aplico P ⇒ Q em P para obter Q. --Dados: Q
+Aplico ¬Q em Q para obter ⊥. --Dados: ⊥
+Contradição. ∎
+4.2. (¬Q ⇒ ¬P) ⇒ (P ⇒ Q)
+Suponha ¬Q ⇒ ¬P. --Dados: ¬Q ⇒ ¬P; Alvo: P ⇒ Q
+Suponha P. --Dados: P; Alvo: Q
+LEM[Q]. --Dados: Q ∨ ¬Q
+Separo em casos a partir de Q ∨ ¬Q
+Caso L: --Dados: Q
+  Imediato em Q.
+Caso R: --Dados: ¬Q
+  Aplico ¬Q ⇒ ¬P em ¬Q para obter ¬P. --Dados: ¬P
+  Aplico ¬P em P para obter ⊥.
+  Contradição.
+∎⛦
+
+5.1. ¬¬(P ∨ ¬P)
+Suponha ¬(P ∨ ¬P). --Dados: ¬(P ∨ ¬P); Alvo: ⊥
+Vou demonstrar: P ∨ ¬P --Alvo: P ∨ ¬P
+  Esc-R. --Alvo: ¬P
+  Suponha P. --Dados: P; Alvo: ⊥
+  Vou demonstrar: P ∨ ¬P --Alvo: P ∨ ¬P
+    Esc-L. --Alvo: P
+    Imediato em P.
+  Aplico ¬(P ∨ ¬P) em P ∨ ¬P. --Dados: ⊥
+  Imediato.
+Aplico ¬(P ∨ ¬P) em P ∨ ¬P.
+Contradição. ∎
+
+6.1. ((P ⇒ Q) ⇒ P) ⇒ P
+Suponha (P ⇒ Q) ⇒ P. --Dados: (P ⇒ Q) ⇒ P; Alvo: P
+LEM[P]. --Dados: P ∨ ¬P
+Separo em casos a partir de P ∨ ¬P.
+Caso L: --Dados: P
+  Imediato em P.
+Caso R: --Dados: ¬P
+  Vou demonstrar: P ⇒ Q --Alvo: P ⇒ Q
+    Suponha P. --Dados: P; Alvo: Q
+    Aplico ¬P em P para obter ⊥.
+    Contradição. --Dados: P ⇒ Q
+  Aplico (P ⇒ Q) ⇒ P em P ⇒ Q para obter P. --Dados: P
+  Imediato em P.
+∎⛦
+6.2. ((P ⇒ Q) ⇒ P) ⇒ ¬¬P
+Suponha (P ⇒ Q) ⇒ P. --Dados: (P ⇒ Q) ⇒ P; Alvo: ¬¬P
+Suponha ¬P. --Dados: ¬P; Alvo: ⊥
+Vou demonstrar: P ⇒ Q. --Alvo: P ⇒ Q
+  Suponha P. --Dados: P; Alvo: Q
+  Aplico ¬P em P para obter ⊥. --Dados: ⊥
+  Contradição. --Dados: P ⇒ Q
+Aplico (P ⇒ Q) ⇒ P em P ⇒ Q para obter P. --Dados: P
+Aplico ¬P em P para obter ⊥. --Dados: ⊥
+Contradição. ∎
+
+7.1. P∨Q ⇒ ¬(¬P∧¬Q)
+Suponha P ∨ Q. --Dados: P ∨ Q; Alvo: ¬(¬P ∧ ¬Q)
+Suponha ¬P ∧ ¬Q. --Dados: ¬P ∧ ¬Q; Alvo: ⊥
+Separo em casos a partir de P ∨ Q.
+Caso L: --Dados: P
+  Ext-L ¬P ∧ ¬Q. --Dados: ¬P
+  Aplico ¬P em P para obter ⊥.
+  Contradição.
+Caso R: --Dados: Q
+  Ext-R ¬P ∧ ¬Q. --Dados: ¬Q
+  Aplico ¬Q em Q para obter ⊥.
+  Contradição.
+∎
+7.2. P∨Q ⇐ ¬(¬P∧¬Q)
+Suponha ¬(¬P ∧ ¬Q). --Dados: ¬(¬P ∧ ¬Q); Alvo: P ∨ Q
+LEM[P]. --Dados: P ∨ ¬P
+Separo em casos a partir de P ∨ ¬P.
+Caso L: --Dados: P
+  Esc-L. --Alvo: P
+  Imediato em P.
+Caso R: --Dados: ¬P
+  Esc-R. --Alvo: Q
+  RAA[¬Q]. --Dados: ¬Q; Alvo: ⊥
+  Junte ¬P e ¬Q para obter ¬P ∧ ¬Q. --Dados: ¬P ∧ ¬Q
+  Aplico ¬(¬P ∧ ¬Q) em ¬P ∧ ¬Q para obter ⊥. --Dados: ⊥
+  Contradição.
+∎⛦ ⛥
+7.3. P∧Q ⇒ ¬(¬P∨¬Q)
+Suponha P ∧ Q. --Dados: P ∧ Q; Alvo: ¬(¬P ∨ ¬Q)
+Suponha ¬P ∨ ¬Q. --Dados: ¬P ∨ ¬Q; Alvo: ⊥
+Separo em casos a partir de ¬P ∨ ¬Q.
+Caso L: --Dados: ¬P
+  Ext-L P ∧ Q. --Dados: P
+  Aplico ¬P em P para obter ⊥.
+  Contradição.
+Caso R: --Dados ¬Q
+  Ext-R P ∧ Q. --Dados: Q
+  Aplico ¬Q em Q para obter ⊥.
+  Contradição.
+∎
+7.4. P∧Q ⇐ ¬(¬P∨¬Q)
+Suponha ¬(¬P ∨ ¬Q). --Dados: ¬(¬P ∨ ¬Q); Alvo: P ∧ Q
+Split
+Parte-L: --Alvo: P
+  RAA[¬P]. --Dados: ¬P; Alvo: ⊥
+  Vou demonstrar: ¬P ∨ ¬Q
+    Esc-L. --Alvo: ¬P
+    Imediato em ¬P. --Dados: ¬P ∨ ¬Q
+  Aplico ¬(¬P ∨ ¬Q) em ¬P ∨ ¬Q para obter ⊥.
+  Contradição.
+Parte-R: --Alvo: Q
+  RAA[¬Q]. --Dados: ¬Q; Alvo: ⊥
+  Vou demonstrar: ¬P ∨ ¬Q
+    Esc-R.
+    Imediato em ¬Q. --Dados: ¬P ∨ ¬Q
+  Aplico ¬(¬P ∨ ¬Q) em ¬P ∨ ¬Q para obter ⊥. --Dados: ⊥
+  Contradição.
+∎⛥ ⛥
+
+8.1. ¬(P∨Q) ⇒ (¬P ∧ ¬Q)
+Suponha ¬(P ∨ Q). --Dados: ¬(P ∨ Q); Alvo: ¬P ∧ ¬Q
+Split
+Parte-L: --Alvo: ¬P
+  Suponha P. --Dados: P; Alvo: ⊥
+  Vou demonstrar: P ∨ Q
+    Esc-L. --Alvo: P
+    Imediato em P. --Dados: P ∨ Q
+  Aplico ¬(P ∨ Q) em P ∨ Q para obter ⊥. --Dados: ⊥
+  Contradição.
+Parte-R: --Alvo: ¬Q
+  Suponha Q. --Dados: Q; Alvo: ⊥
+  Vou demonstrar: P ∨ Q
+    Esc-R. --Alvo: Q
+    Imediato em Q. --Dados: P ∨ Q
+  Aplico ¬(P ∨ Q) em P ∨ Q para obter ⊥. --Dados: ⊥
+  Contradição.
+∎
+8.2. ¬(P∨Q) ⇐ (¬P ∧ ¬Q)
+Suponha ¬P ∧ ¬Q. --Dados: ¬P ∧ ¬Q; Alvo: ¬(P ∨ Q)
+Suponha P ∨ Q. --Dados: P ∨ Q; Alvo: ⊥
+Separo em casos a partir de P ∨ Q.
+Caso L: --Dados: P
+  Ext-L em ¬P ∧ ¬Q. --Dados: ¬P
+  Aplico ¬P em P para obter ⊥. --Dados: ⊥
+  Contradição.
+Caso R: --Dados: Q
+  Ext-R em ¬P ∧ ¬Q. --Dados: ¬Q
+  Aplico ¬Q em Q para obter ⊥. --Dados: ⊥
+  Contradição.
+∎
+8.3. ¬(P∧Q) ⇒ (¬Q ∨ ¬P)
+Suponha ¬(P ∧ Q). --Dados: ¬(P ∧ Q); Alvo: ¬Q ∨ ¬P
+LEM[P]. --Dados: P ∨ ¬P
+Separo em casos a partir de P ∨ ¬P.
+Caso L: --Dados: P
+  Esc-L. --Alvo: ¬Q
+  Suponha Q. --Dados: Q; Alvo: ⊥
+  Junte P e Q para obter P ∧ Q. --Dados: P ∧ Q
+  Aplico ¬(P ∧ Q) em P ∧ Q para obter ⊥.
+  Contradição.
+Caso R: --Dados: ¬P
+  Esc-R. --Alvo: ¬P
+  Imediato em ¬P.
+∎⛥
+8.4. ¬(P∧Q) ⇐ (¬Q ∨ ¬P)
+Suponha ¬Q ∨ ¬P. --Dados: ¬Q ∨ ¬P; Alvo: ¬(P ∧ Q)
+Suponha P ∧ Q. --Dados: P ∧ Q; Alvo: ⊥
+Ext-L e Ext-R em P ∧ Q. --Dados: P, Q
+Separo em casos a partir de ¬Q e ¬P.
+Caso L: --Dados: ¬Q
+  Aplico ¬Q em Q para obter ⊥. --Dados: ⊥
+  Contradição.
+Caso R: --Dados: ¬P
+  Aplico ¬P em P para obter ⊥. --Dados: ⊥
+  Contradição.
+∎
+
+9.1. P∧(Q∨R) ⇒ (P∧Q)∨(P∧R)
+Suponha P ∧ (Q ∨ R). --Dados: P ∧ (Q ∨ R); Alvo: (P ∧ Q) ∨ (P ∧ R)
+Ext-L e Ext-R em P ∧ (Q ∨ R). --Dados: P, Q ∨ R
+Separo em casos a partie de Q ∨ R.
+Caso L: --Dados: Q
+  Esc-L. --Alvo: P ∧ Q
+  Split.
+  Parte-L: --Alvo: P
+    Imediato em P.
+  Parte-R: --Alvo: Q
+    Imediato em Q.
+Caso R: --Dados: R
+  Esc-R. --Alvo: P ∧ R
+  Split.
+  Parte-L: --Alvo: P
+    Imediato em P.
+  Parte-R: --Alvo: R
+    Imediato em R.
+∎
+9.2. P∧(Q∨R) ⇐ (P∧Q)∨(P∧R)
+Suponha (P ∧ Q) ∨ (P ∧ R). --Dados: (P ∧ Q) ∨ (P ∧ R); Alvo: P ∧ (Q ∨ R)
+Separo em casos a partir de (P ∧ Q) ∨ (P ∧ R).
+Caso L: --Dados: P ∧ Q
+  Split.
+  Parte-L: --Alvo: P
+    Ext-L em P ∧ Q. --Dados: P
+    Imediato em P.
+  Parte-R: --Alvo: Q ∨ R
+    Esc-L. --Alvo: Q
+    Ext-R em P ∧ Q.
+    Imediato em Q.
+Caso R: --Dados: P ∧ R
+  Split.
+  Parte-L: --Alvo: P
+    Ext-L em P ∧ R. --Dados: P
+    Imediato em P.
+  Parte-R: --Alvo: Q ∨ R
+    Esc-R. --Alvo: R
+    Ext-R em P ∧ R.
+    Imediato em R.
+∎
+9.3. P∨(Q∧R) ⇒ (P∨Q)∧(P∨R)
+Suponha P ∨ (Q ∧ R). --Dados: P ∨ (Q ∧ R); Alvo: (P ∨ Q) ∧ (P ∨ R)
+Separo em casos a partir de P ∨ (Q ∧ R).
+Caso L: --Dados: P
+  Split.
+  Parte-L: --Alvo: P ∨ Q
+    Esc-L. --Alvo: P
+    Imediato em P.
+  Parte-R: --Alvo: P ∨ R
+    Esc-L. --Alvo: P
+    Imediato em P.
+Caso R: --Dados: Q ∧ R
+  Ext-L e Ext-R em Q ∧ R. --Dados: Q, R
+  Split.
+  Parte-L: --Alvo: P ∨ Q
+    Esc-R. --Alvo: Q
+    Imediato em Q.
+  Parte-R: --Alvo: P ∨ R
+    Esc-R. --Alvo: R
+    Imediato em R.
+∎
+9.4. P∨(Q∧R) ⇐ (P∨Q)∧(P∨R)
+Suponha (P ∨ Q) ∧ (P ∨ R). --Dados: (P ∨ Q) ∧ (P ∨ R); Alvo: P ∨ (Q ∧ R)
+Ext-L e Ext-R a partir de (P ∨ Q) ∧ (P ∨ R). --Dados: P ∨ Q, P ∨ R
+Separo em casos a partir de P ∨ Q.
+Caso L: --Dados: P
+  Esc-L. --Alvo: P
+  Imediato em P.
+Caso R: --Dados: Q
+  Separo em casos a partir de P ∨ R.
+  Caso L: --Dados: P
+    Esc-L. --Alvo: P
+    Imediato em P.
+  Caso R: --Dados: R
+    Esc-R. --Alvo: Q ∧ R
+    Split.
+    Parte-L: --Alvo: Q
+      Imediato em Q.
+    Parte-R: --Alvo: R
+      Imediato em R.
+∎
+
+10.1. ((P∧Q)⇒R) ⇒ (P⇒(Q⇒R))
+Suponha (P ∧ Q) ⇒ R. --Dados: (P ∧ Q) ⇒ R; Alvo: P ⇒ (Q ⇒ R)
+Suponha P. --Dados: P; Alvo: Q ⇒ R
+Suponha Q. --Dados: Q; Alvo: R
+Junte P e Q para obter P ∧ Q. --Dados: P ∧ Q
+Aplique (P ∧ Q) ⇒ R em P ∧ Q para obter R. --Dados: R
+Imediato em R.
+∎
+10.2. ((P∧Q)⇒R) ⇐ (P⇒(Q⇒R))
+Suponha P ⇒ (Q ⇒ R). --Dados: P ⇒ (Q ⇒ R); Alvo: (P ∧ Q) ⇒ R
+Suponha P ∧ Q. --Dados: P ∧ Q; Alvo: R
+Ext-L e Ext-R em P ∧ Q. --Dados: P, Q
+Aplique P ⇒ (Q ⇒ R) em P para obter Q ⇒ R. --Dados: Q ⇒ R
+Aplique Q ⇒ R em Q para obter R. --Dados: R
+Imediato em R.
+∎
+
+11.1. P ⇒ P
+Suponha P. --Dados: P; Alvo: P
+Imediato em P.
+∎
+
+12.1. P ⇒ (P∨Q)
+Suponha P. --Dados: P; Alvo: P ∨ Q
+Esc-L. --Alvo: P
+Imediato em P.
+∎
+12.2. Q ⇒ (P∨Q)
+Suponha Q. --Dados: Q; Alvo: P ∨ Q
+Esc-R. --Alvo: Q
+Imediato em Q.
+∎
+12.3. (P∧Q) ⇒ P
+Suponha P ∧ Q. --Dados: P ∧ Q; Alvo: P
+Ext-L em P ∧ Q. --Dados: P
+Imediato em P.
+∎
+12.4. (P∧Q) ⇒ Q
+Suponha P ∧ Q. --Dados: P ∧ Q; Alvo: P
+Ext-R em P ∧ Q. --Dados: Q
+Imediato em Q.
+∎
+12.5. P ⇒ (P∧P)
+Suponha P. --Dados: P; Alvo: P ∧ P
+Split.
+Parte-L: --Alvo: P
+  Imediato em P.
+Parte-R: --Alvo: P
+  Imediato em P.
+∎
+12.6. (P∨P) ⇒ P
+Suponha P ∨ P. --Dados P ∨ P; Alvo: P
+Separo em casos a partir de P ∨ P.
+Caso L: --Dados: P
+  Imediato em P.
+Caso R: --Dados: P
+  Imediato em P.
+∎
+
+13.1. ¬(∀x)[φ(x)] ⇒ (∃x)[¬φ(x)]
+Suponha ¬(∀x)[φ(x)]. --Dados: ¬(∀x)[φ(x)]; Alvo: (∃x)[¬φ(x)]
+RAA[¬(∃x)[¬φ(x)]]. --Dados: ¬(∃x)[¬φ(x)]; Alvo: ⊥
+Vou demonstrar: (∀x)[φ(x)] --Alvo: (∀x)[φ(x)]
+  Seja a: α. --Dados: a: α; Alvo: φ(a)
+  RAA[¬φ(a)]. --Dados: ¬φ(a); Alvo: ⊥
+  Escolho a tal que ¬φ(a). --Dados: (∃x)[¬φ(x)]
+  Aplico ¬(∃x)[¬φ(x)] em (∃x)[¬φ(x)] para obter ⊥. --Dados: ⊥
+  Contradição.
+--Dados: (∀x)[φ(x)]
+Aplico ¬(∀x)[φ(x)] em (∀x)[φ(x)] para obter ⊥. --Dados: ⊥
+Contradição.
+∎⛥ ⛥
+13.2. ¬(∀x)[φ(x)] ⇐ (∃x)[¬φ(x)]
+Suponha (∃x)[¬φ(x)]. --Dados: (∃x)[¬φ(x)]; Alvo: ¬(∀x)[φ(x)]
+Suponha (∀x)[φ(x)]. --Dados: (∀x)[φ(x)]; Alvo: ⊥
+Seja a: α tal que ¬φ(a). --Dados: a: α, ¬φ(a)
+Aplico (∀x)[φ(x)] no a: α para obter φ(a) --Dados: φ(a)
+Aplico ¬φ(a) em φ(a) para obter ⊥.
+Contradição.
+∎
+13.3. ¬(∃x)[φ(x)] ⇒ (∀x)[¬φ(x)]
+Suponha ¬(∃x)[φ(x)]. --Dados: ¬(∃x)[φ(x)]; Alvo: (∀x)[¬φ(x)]
+Seja a: α. --Dados: a: α; Alvo: ¬φ(a)
+Suponha φ(a). --Dados: φ(a); Alvo: ⊥
+Escolho a tal que φ(a). --Dados: (∃x)[φ(x)]
+Aplico ¬(∃x)[φ(x)] em (∃x)[φ(x)] para obter ⊥. --Dados: ⊥
+Contradição.
+∎
+13.4. ¬(∃x)[φ(x)] ⇐ (∀x)[¬φ(x)]
+Suponha (∀x)[¬φ(x)]. --Dados: (∀x)[¬φ(x)]; Alvo: ¬(∃x)[φ(x)]
+Suponha (∃x)[φ(x)]. --Dados: (∃x)[φ(x)]; Alvo: ⊥
+Seja a: α tal que φ(a). --Dados: a: α, φ(a)
+Aplico (∀x)[¬φ(x)] no a: α para obter ¬φ(a). --Dados: ¬φ(a)
+Aplico ¬φ(a) em φ(a) para obter ⊥. --Dados: ⊥
+Contradição.
+∎
+
+14.1. (∃x)[φ(x)] ⇒ ¬(∀x)[¬φ(x)]
+Suponha (∃x)[φ(x)]. --Dados: (∃x)[φ(x)]; Alvo: ¬(∀x)[¬φ(x)]
+Suponha (∀x)[¬φ(x)]. --Dados: (∀x)[¬φ(x)]; Alvo: ⊥
+Seja a: α tal que φ(a). --Dados: a: α, φ(a)
+Aplico (∀x)[¬φ(x)] no a: α para obter ¬φ(a). --Dados: ¬φ(a)
+Aplico ¬φ(a) em φ(a) para obter ⊥. --Dados: ⊥
+Contradição.
+∎
+14.2. (∃x)[φ(x)] ⇐ ¬(∀x)[¬φ(x)]
+Suponha ¬(∀x)[¬φ(x)]. --Dados: ¬(∀x)[¬φ(x)]; Alvo: (∃x)[φ(x)]
+RAA[¬(∃x)[φ(x)]] --Dados: ¬(∃x)[φ(x)]; Alvo: ⊥
+Aplico 13.3 em ¬(∃x)[φ(x)] para obter (∀x)[¬φ(x)]. --Dados: (∀x)[¬φ(x)]
+Aplico ¬(∀x)[¬φ(x)] em (∀x)[¬φ(x)] para obter ⊥. --Dados: ⊥
+Contradição.
+∎⛥
+14.3. (∀x)[φ(x)] ⇒ ¬(∃x)[¬φ(x)]
+Suponha (∀x)[φ(x)]. --Dados: (∀x)[φ(x)]; Alvo: ¬(∃x)[¬φ(x)]
+Suponha (∃x)[¬φ(x)]. --Dados: (∃x)[¬φ(x)]; Alvo: ⊥
+Seja a: α tal que ¬φ(a). --Dados: a: ɑ, ¬φ(a)
+Aplico (∀x)[φ(x)] no a para obter φ(a). --Dados: φ(a)
+Aplico ¬φ(a) no φ(a) para obter ⊥. --Dados: ⊥
+Contradição.
+∎
+14.4. (∀x)[φ(x)] ⇐ ¬(∃x)[¬φ(x)]
+Suponha ¬(∃x)[¬φ(x)]. --Dados: ¬(∃x)[¬φ(x)]; Alvo: (∀x)[φ(x)]
+Seja a: α. --Dados: a: α; Alvo: φ(a)
+RAA[¬φ(a)]. --Dados: ¬φ(a); Alvo: ⊥
+Escolho a: α tal que ¬φ(a). --Dados: (∃x)[¬φ(x)]
+Aplico ¬(∃x)[¬φ(x)] em (∃x)[¬φ(x)] para obter ⊥. --Dados: ⊥
+Contradição.
+∎⛥
+
+15.1. (∃x)[φ(x) ∧ ψ(x)] ⇒ (∃x)[φ(x)] ∧ (∃x)[ψ(x)]
+Suponha (∃x)[φ(x) ∧ ψ(x)]. --Dados: ...; Alvo: ...
+Split.
+Parte-L: --Alvo: (∃x)[φ(x)]
+  Seja a: α tal que φ(a) ∧ ψ(a). --Dados: a: α, φ(a) ∧ ψ(a)
+  Ext-L de φ(a) ∧ ψ(a). --Dados: φ(a)
+  Escolho a: α. --Alvo: φ(a)
+  Imediato em φ(a).
+Parte-R: --Alvo: (∃x)[ψ(x)]
+  Seja a: α tal que φ(a) ∧ ψ(a). --Dados: a: α, φ(a) ∧ ψ(a)
+  Ext-R de φ(a) ∧ ψ(a). --Dados: ψ(a)
+  Escolho a: α. --Alvo: ψ(a)
+  Imediato em ψ(a).
+∎
+15.2. (∃x)[φ(x) ∧ ψ(x)] ⇐ (∃x)[φ(x)] ∧ (∃x)[ψ(x)]
+Suponha (∃x)[φ(x)] ∧ (∃x)[ψ(x)]. --Dados: (∃x)[φ(x)] ∧ (∃x)[ψ(x)]; Alvo: (∃x)[φ(x) ∧ ψ(x)]
+Ext-L e Ext-R em (∃x)[φ(x)] ∧ (∃x)[ψ(x)]. --Dados: (∃x)[φ(x)], (∃x)[ψ(x)]
+Escolho c: α. --Dados: c: α; Alvo: φ(c) ∧ ψ(c)
+Seja a: α tal que φ(a). --Dados: a: α, φ(a)
+Seja b: α tal que ψ(b). --Dados: b: α, ψ(b)
+Split.
+Parte-L: --Alvo: φ(c)
+Parte-R: --Alvo: ψ(c)
+⊬
+15.3. (∃x)[φ(x) ∨ ψ(x)] ⇒ (∃x)[φ(x)] ∨ (∃x)[ψ(x)]
+Suponha (∃x)[φ(x) ∨ ψ(x)]. --Dados: (∃x)[φ(x) ∨ ψ(x)]; Alvo: (∃x)[φ(x)] ∨ (∃x)[ψ(x)]
+Seja a: α tal que φ(a) ∨ ψ(a). --Dados: a: α, φ(a) ∨ ψ(a)
+Separo em casos a partir de φ(a) ∨ ψ(a).
+Caso L: --Dados: φ(a)
+  Esc-L. --Alvo: (∃x)[φ(x)]
+  Escolho a: α. --Alvo: φ(a)
+  Imediato em φ(a).
+Caso R: --Dados: ψ(a)
+  Esc-R. --Alvo: (∃x)[ψ(x)]
+  Escolho a: α. --Alvo: ψ(a)
+  Imediato em ψ(a).
+∎
+15.4. (∃x)[φ(x) ∨ ψ(x)] ⇐ (∃x)[φ(x)] ∨ (∃x)[ψ(x)]
+Suponha (∃x)[φ(x)] ∨ (∃x)[ψ(x)]. --Dados: (∃x)[φ(x)] ∨ (∃x)[ψ(x)]; Alvo: (∃x)[φ(x) ∨ ψ(x)]
+Separo em casos a partir de (∃x)[φ(x)] ∨ (∃x)[ψ(x)].
+Caso L: --Dados: (∃x)[φ(x)]
+  Seja a: α tal que φ(x). --Dados: a: α, φ(a)
+  Escolho a: α. --Alvo: φ(a) ∨ ψ(a)]
+  Esc-L. --Alvo: φ(a)
+  Imediato em φ(a).
+Caso R: --Dados: (∃x)[ψ(x)]
+  Seja a: α tal que ψ(x). --Dados: a: α, ψ(a)
+  Escolho a: α. --Alvo: ψ(a) ∨ ψ(a)]
+  Esc-R. --Alvo: ψ(a)
+  Imediato em ψ(a).
+∎
+15.5. (∀x)[φ(x) ∧ ψ(x)] ⇒ (∀x)[φ(x)] ∧ (∀x)[ψ(x)]
+Suponha (∀x)[φ(x) ∧ ψ(x)]. --Dados: (∀x)[φ(x) ∧ ψ(x)]; Alvo: (∀x)[φ(x)] ∧ (∀x)[ψ(x)]
+Split.
+Parte-L: --Alvo: (∀x)[φ(x)]
+  Seja a: α. --Alvo: φ(a)
+  Aplico (∀x)[φ(x) ∧ ψ(x)] no a: α para obter φ(a) ∧ ψ(a). --Dados: φ(a) ∧ ψ(a)
+  Ext-L em φ(a) ∧ ψ(a). --Dados: φ(a)
+  Imediato em φ(a).
+Parte-R: --Alvo: (∀x)[ψ(x)]
+  Seja a: α. --Alvo: ψ(a)
+  Aplico (∀x)[φ(x) ∧ ψ(x)] no a: α para obter φ(a) ∧ ψ(a). --Dados: φ(a) ∧ ψ(a)
+  Ext-R em φ(a) ∧ ψ(a). --Dados: ψ(a)
+  Imediato em ψ(a).
+∎
+15.6. (∀x)[φ(x) ∧ ψ(x)] ⇐ (∀x)[φ(x)] ∧ (∀x)[ψ(x)]
+Suponha (∀x)[φ(x)] ∧ (∀x)[ψ(x)]. --Dados: (∀x)[φ(x)] ∧ (∀x)[ψ(x)]; Alvo: (∀x)[φ(x) ∧ ψ(x)]
+Seja a: α. --Dados: a: α; Alvo: φ(a) ∧ ψ(a)
+Split.
+Parte-L: --Alvo: φ(a)
+  Ext-L em (∀x)[φ(x)] ∧ (∀x)[ψ(x)]. --Dados: (∀x)[φ(x)]
+  Aplico (∀x)[φ(x)] no a: α para obter φ(a). --Dados: φ(a)
+  Imediato em φ(a).
+Parte-R: --Alvo: ψ(a)
+  Ext-R em (∀x)[φ(x)] ∧ (∀x)[ψ(x)]. --Dados: (∀x)[ψ(x)]
+  Aplico (∀x)[ψ(x)] no a: α para obter ψ(a). --Dados: ψ(a)
+  Imediato em ψ(a).
+∎
+15.7. (∀x)[φ(x) ∨ ψ(x)] ⇒ (∀x)[φ(x)] ∨ (∀x)[ψ(x)]
+Suponha (∀x)[φ(x) ∨ ψ(x)]. --Dados: (∀x)[φ(x) ∨ ψ(x)]; Alvo: (∀x)[φ(x)] ∨ (∀x)[ψ(x)]
+Esc-L. --Alvo: (∀x)[φ(x)]
+Seja a: α. --Dados: a: α; Alvo: φ(a)
+Aplico (∀x)[φ(x) ∨ ψ(x)] no a para obter φ(a) ∨ ψ(a). --Dados: φ(a) ∨ ψ(a)
+Separo em casos a partir de φ(a) ∨ ψ(a).
+Caso L: --Dados: φ(a)
+  Imediato em φ(a).
+Caso R: --Dados: ψ(a)
+⊬
+15.8. (∀x)[φ(x) ∨ ψ(x)] ⇐ (∀x)[φ(x)] ∨ (∀x)[ψ(x)]
+Suponha (∀x)[φ(x)] ∨ (∀x)[ψ(x)]. --Dados: (∀x)[φ(x)] ∨ (∀x)[ψ(x)]; Alvo: (∀x)[φ(x) ∨ ψ(x)]
+Seja a: α. --Alvo: φ(a) ∨ ψ(a)
+Separo em casos a partir de (∀x)[φ(x)] ∨ (∀x)[ψ(x)].
+Caso L: --Dados: (∀x)[φ(x)]
+  Aplico (∀x)[φ(x)] em a para obter φ(a). --Dados: φ(a)
+  Esc-L. --Alvo: φ(a)
+  Imediato em φ(a).
+Caso R: --Dados: (∀x)[ψ(x)]
+  Aplico (∀x)[ψ(x)] em a para obter ψ(a). --Dados: ψ(a)
+  Esc-R. --Alvo: ψ(a)
+  Imediato em ψ(a).
+∎

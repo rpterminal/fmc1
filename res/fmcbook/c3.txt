@@ -1,0 +1,308 @@
+x3.1.
+i. (∀a)[0 + a = a]
+Seja x : Int.  --Dados: x : Int; Alvo: 0 + x = x
+Calculamos:
+  x = x + 0   [(0-idR-(+)) x]
+    = 0 + x   [((+)-com) x 0]
+∎
+ii. (∀a)[(-a) + a = 0]
+Seja x : Int.  --Dados: x : Int; Alvo: (-x) + x = 0
+Calculamos:
+  0 = x + (-x)  [((-)-invR-(+)) x]
+    = (-x) + x  [((+)-com) (-x) x]
+∎
+iii. (∀a)[1 · a = a]
+Seja x : Int.  --Dados: x : Int; Alvo: 1 · x = x
+Calculamos:
+  x = x · 1   [(1-idR-(·)) x]
+    = 1 · x   [((·)-com) x 1]
+∎
+iv. (∀d, a, b)[d · (a + b) = (d · a) + (d · b)]
+Sejam x, u, v : Int.  --Dados: x, u, v : Int; Alvo: x · (u + v) = (x · u) + (x · v)
+Calculamos:
+  (x · u) + (x · v)
+    = (x · u) + (x · v) [((·)-com) x u]
+    = (u · x) + (v · x) [((·)-com) x v]
+    = (u + v) · x       [((+)-distR-(·))]
+    = x · (u + v)       [((·)-com) (u + v) x]
+∎
+
+x3.2.
+i. (∀a, b, c)[a + b = c ⇐⇒ a = c - b]
+Sejam x, y, z : Int.   --Dados: x, y, z : Int; Alvo: x + y = z ⇐⇒ x = z - y
+⇒:   --Alvo: x + y = z ⇒ x = z - y
+  Suponha x + y = z.  --Dados: x + y = z; Alvo: x = z - y
+  Calculamos:
+    x = x + 0           [(0-idR-(+)) x]
+      = x + (y + (-y))  [((-)-invR-(+)) y]
+      = (x + y) + (-y)  [((+)-ass) x y]
+      = z + (-y)        [x + y = z]
+      = z - y           [açúcar]
+⇐:   --Alvo: x + y = z ⇐ x = z - y
+  Suponha x = z - y.  --Dados: x = z - y; Alvo: x + y = z
+  Calculamos:
+    x + y
+      = (z - y) + y     [x = z - y]
+      = (z + (-y)) + y  [açúcar]
+      = z + ((-y) + y)  [((+)-ass)]
+      = z + 0           [((-)-invL-(+)) y]
+      = z               [(0-idR-(+)) z]
+∎
+ii. (∀a, b, c)[a + b = c ⇐⇒ b = c − a]
+Sejam x, y, z : Int.   --Dados: x, y, z : Int; x + y = z ⇐⇒ y = z − x
+⇒:   --Alvo: x + y = z ⇒ y = z - x
+  Suponha x + y = z.  --Dados: x + y = z; Alvo: y = z - x
+  Calculamos:
+  y = 0 + y           [(0-idL-(+)) y]
+    = ((-x) + x) + y  [((-)-invL-(+)) x]
+    = -x + (x + y)    [(+)-ass]
+    = -x + z          [x + y = z]
+    = z + (-x)        [(+)-com]
+    = z - x           [açúcar]
+⇐:   --Alvo: x + y = z ⇐ y = z - x
+  Suponha y = z - x.  --Dados: y = z - x; Alvo: x + y = z
+  Calculamos:
+    x + y
+      = x + (z - x)     [y = z - x]
+      = x + ((-x) + z)  [((+)-com) z x]
+      = (x + (-x)) + z  [(+)-ass]
+      = 0 + z           [((-)-invR-(+)) x]
+      = z               [(0-idL-(+)) z]
+∎
+iii. (∀a, b)[a = b ⇐⇒ a − b = 0
+Sejam x, y : Int.   --Dados: x, y : Int; Alvo: x = y ⇐⇒ x - y = 0
+⇒:   --Alvo: a = b ⇒ a - b = 0
+  Suponha a = b.   --Dados: a = b; Alvo: a - b = 0
+  Calculamos:
+    a - b
+      = a + (-b)   [açúcar]
+      = a + (-a)   [a = b]
+      = 0          [((-)-invR-(+)) a]
+⇐:   --Alvo: a = b ⇐ a - b = 0
+  Suponha a - b = 0.   --Dados: a - b = 0; Alvo: a = b
+  Calculamos:
+    a = a + 0           [(0-idR-(+)) a]
+      = a + (b + (-b))  [((-)-invR-(+)) b]
+      = a + ((-b) + b)  [(+)-com]
+      = (a + (-b)) + b  [((+)-ass) a (-b)]
+      = (a - b) + b     [açúcar]
+      = 0 + b           [a - b = 0]
+      = b               [0-idL-(+)]
+∎
+
+x3.3.
+i. (∀a, b)[a = b ⇒ a ♡ x = b ♡ x]
+Suponha a = b.   --Dados: a = b; Alvo: a ♡ x = b ♡ x
+(Subs) b a [a = b] --Dados: a ♡ x = a ♡ x
+Refl
+∎
+ii. (∀a, b)[a = b ⇒ x ♡ a = x ♡ b]
+Suponha a = b.   --Dados: a = b; Alvo: x ♡ a = x ♡ b
+(Subs) b a [a = b] --Alvo: x ♡ a = x ♡ a
+Refl
+∎
+
+x3.4.
+Não. Como contraexemplo, na operação de multiplicação, x = 0, a = 1, b = 2:
+1 · 0 = 2 · 0 é verdade, mas 1 = 2 é falso. Refutada.
+
+x3.5.
+i. (∀a, b, c)[a + c = b + c ⇒ a = b]
+Sejam a, b, c : Int.   --Dados: a, b, c : Int; Alvo: a + c = b + c ⇒ a = b
+Suponha a + c = b + c.   --Dados: a + c = b + c; Alvo: a = b
+Calculamos:
+  a = a + 0   [(0-idR-(+)) a]
+    = a + (c + (-c))   [((-)-invR-(+)) c]
+    = (a + c) + (-c)   [(+)-ass]
+    = (b + c) + (-c)   [a + c = b + c]
+    = b + (c + (-c))   [(+)-ass]
+    = b + 0   [((-)-invR-(+)) c]
+    = b   [0-idR-(+)]
+∎
+ii. (∀a, b, c)[c + a = c + b ⇒ a = b]
+Sejam a, b, c : Int.   --Dados: a, b, c : Int; Alvo: c + a = c + b ⇒ a = b
+Suponha c + a = c + b.   --Dados: c + a = c + b; Alvo: a = b
+((+)-com) c a em c + a = c + b.   --Dados: a + c = c + b
+((+)-com) c b em a + c = c + b.   --Dados: a + c = b + c
+((+)-canR) em a + c = b + c.   --Dados: a = b
+Imediato.
+∎
+
+x3.6.
+i. (∀a, b, c)[a · c = b · c ⇒ a = b]
+ii. (∀a, b, c)[c · a = c · b ⇒ a = b]
+Vide x3.4.
+
+x3.7.
+(∀u,v)[((∀x)[x = x · u] ∧ (∀x)[x = x · v]) ⇒ u = v]
+Sejam u, v : Int.   --Dados: u, v; Alvo: ((∀x)[x = x · u] ∧ (∀x)[x = x · v]) ⇒ u = v
+Suponha h: (∀x)[x = x · u] ∧ (∀x)[x = x · v]. --Dados: h; Alvo: u = v
+Ext-LR em h para obter h₁ e h₂.   --Dados: h₁: (∀x)[x = x · u], h₂: (∀x)[x = x · v]
+Calculamos:
+  u = u · v   [h₂ u]
+     = v   [idL-u v]
+∎
+
+x3.8.
+(∀a, b)[(∃!x)[a + x = b] ∧ (∃!y)[y + a = b]]
+Sejam a, b : Int. --Dados: a, b : Int; Alvo: (∃!x)[a + x = b] ∧ (∃!y)[y + a = b]
+Split.
+Parte-L: --Alvo: (∃!x)[a + x = b]
+  Existência: --Alvo: (∃x)[a + x = b]
+    Escolho x = -a + b.
+    Calculamos:
+    a + x
+      = a + (-a + b)    [x = -a + b]
+      = (a + (-a)) + b  [(+)-ass]
+      = 0 + b           [((-)-invR-(+)) a]
+      = b               [0-idL-(+)]
+  Unicidade: --Alvo: (∀x₁, x₂)[(a + x₁ = b ∧ a + x₂ = b) ⇒ x₁ = x₂]
+    Sejam x₁ e x₂ : Int. --Dados: x₁, x₂ : Int; Alvo: (a + x₁ = b ∧ a + x₂ = b) ⇒ x₁ = x₂
+    Suponha h: a + x₁ = b ∧ a + x₂ = b. --Dados: h; Alvo: x₁ = x₂
+    Ext-LR em h para obter h₁ e h₂. --Dados: h₁, h₂
+    Logo, a + x₁ = a + x₂.    [(=)-trans]
+    Logo, x₁ = x₂.    [((+)-canL) a]
+Parte-R: --Alvo: (∃!y)[y + a = b]
+  Existência: --Alvo: (∃y)[y + a = b]
+    Escolho y = b + (-a).
+    Calculamos:
+    y + a
+      = (b + (-a)) + a    [y = b + (-a)]
+      = b + (-a + a)    [(+)-ass]
+      = b + 0   [((-)-invL-(+)) a]
+      = b    [0-idR-(+)]
+  Unicidade: --Alvo: (∀y₁, y₂)[(y₁ + a = b ∧ y₂ + a = b) ⇒ y₁ = y₂]
+    Sejam y₁ e y₂ : Int. --Dados: y₁, y₂ : Int; Alvo: (y₁ + a = b ∧ y₂ + a = b) ⇒ y₁ = y₂
+    Suponha h: y₁ + a = b ∧ y₂ + a = b. --Dados: h; Alvo: y₁ = y₂
+    Ext-LR em h para obter h₁ e h₂. --Dados: h₁, h₂
+    Logo, y₁ + a = y₂ + a.    [(=)-trans]
+    Logo, y₁ = y₂.    [((+)-canR) a]
+∎
+
+x3.9.
+i. (∃!u)(∀x)[u + x = x = x + u]
+Existência: --Alvo: (∃u)(∀x)[u + x = x ∧ x = x + u]
+  Escolho u = 0. --Dados: u = 0; Alvo: (∀x)[0 + x = x ∧ x = x + 0]
+  Seja x : Int. --Dados: x : Int; Alvo: 0 + x = x ∧ x = x + 0
+  Split.
+  Parte-L: --Alvo: 0 + x = x
+    Imediato.   [0-idL-(+)]
+  Parte-R: --Alvo: x = x + 0
+    Imediato.   [0-idR-(+)]
+Unicidade: --Alvo: (∀u₁, u₂)[((∀a)[a + u₁ = a] ∧ (∀a)[a + u₂ = a]) ⇒ u₁ = u₂]
+  Sejam u₁, u₂ : Int. --Dados: u₁, u₂ : Int; Alvo: ((∀a)[a + u₁ = a] ∧ (∀a)[a + u₂ = a]) ⇒ u₁ = u₂
+  Suponha h: (∀a)[a + u₁ = a] ∧ (∀a)[a + u₂ = a]. --Dados: h; Alvo: u₁ = u₂
+  Ext-LR em h para obter h₁ e h₂. --Dados: h₁, h₂
+  Aplico Λ3.14 à equação a + x = a.
+  De h₁ e h₂.
+  Logo, u₁ = u₂.    [Λ3.14]
+  Imediato.
+∎
+ii. (∀x)(∃!x')[x' + x = 0 = x + x']
+Seja x : Int. --Dados: x : Int; Alvo: (∃!x')[x + x' = 0 = x' + x]
+Existência: --Alvo: (∃x')[x + x' = 0 ∧ 0 = x' + x]
+  Escolho x = -x'. --Dados: x = -x'; Alvo: -x' + x' = 0 ∧ 0 = x' + (-x')
+  Split.
+  Parte-L: --Alvo: -x' + x' = 0
+    Imediato.    [(-)-invR-(+)]
+  Parte-R: 0 = x' + (-x')
+    Imediato.    [(-)-invL-(+)]
+Unicidade: --Alvo: (∀x'₁, x'₂)[(a + x'₁ = 0 ∧ a + x'₂ = 0) ⇒ x'₁ = x'₂]
+  Sejam x'₁ e x'₂. --Dados: x'₁, x'₂; Alvo: (a + x'₁ = 0 ∧ a + x'₂ = 0) ⇒ x'₁ = x'₂
+  Suponha h: a + x'₁ = 0 ∧ a + x'₂ = 0. --Dados: h; x'₁ = x'₂
+  Ext-LR em h para obter h₁ e h₂. --Dados: h₁, h₂
+  Aplico Λ3.14 à equação a + x = 0.
+  De h₁ e h₂.
+  Logo, x'₁ = x'₂.    [Λ3.14]
+  Imediato.
+∎
+
+x3.10.
+(∀a)[(-1)a = -a]
+Seja a : Int. --Dados: a : Int; Alvo: (-1)a = -a
+Calculamos:
+  a + (-1)a
+    = (1 · a) + (-1)a   [1-idL-(·)]
+    = (1 + (-1)) · a    [(+)-distR-(·)]
+    = 0 · a             [(-)invR-(+)]
+    = 0                 [0-annL-(·)]
+  a + (-a)
+    = 0                 [(-)-invR-(+)]
+Logo (-1)a = -a.    [(+)-canL a]
+Imediato.
+∎
+
+x3.11.
+(∀a, b)[(-a)b = -(ab) = a(-b)]
+Sejam a, b : Int.   --Dados: a, b : Int; Alvo: (-a)b = -(ab) ∧ -(ab) = a(-b)
+Split.
+Parte-L:  --Alvo: (-a)b = -(ab)
+  Calculamos:
+    ab + (-a)b
+      = (a + (-a)) · b    [(+)-distR-(·)]
+      = 0 · b     [(-)-invR-(+)]
+      = 0     [0-annL-(·)]
+    ab + (-a)b
+      = ab + (-(ab))    [(-)-invR-(+)]
+  --Dados: ab + (-a)b = 0, ab + (-a)b = ab + (-(ab))
+  Logo, (-a)b = -(ab)   [((+)-canL) ab]
+  Imediato.
+Parte-R:  --Alvo: -(ab) = a(-b)
+  Calculamos:
+    ab + a(-b)
+      = a · (b + (-b))    [(+)-distL-(·)]
+      = a · 0     [(-)-invR-(+)]
+      = 0     [0-annR-(·)]
+    ab + a(-b)
+      = ab + (-(ab))    [(-)-invR-(+)]
+  --Dados: ab + a(-b) = 0, ab + a(-b) = ab + (-(ab))
+  Logo, -(ab) = a(-b)   [((+)-canL) ab]
+  Imediato.
+∎
+
+x3.12.
+(∀a, b)[(-a)(-b) = ab]
+Sejam a, b : Int    --Dados: a, b : Int; Alvo: (-a)(-b) = ab
+Calculamos:
+  (-a)(-b)
+    = -(a(-b))    [x3.11]
+    = -(-(ab))    [x3.11]
+    = ab          [Θ3.15]
+∎
+
+x3.13.
+(∀a, b)[-(a - b) = b - a ∧ -(a + b) = -a - b]
+Sejam a, b : Int.   --Dados: a, b : Int; Alvo: -(a - b) = b - a ∧ -(a + b) = -a - b
+Split.
+Parte-L:    --Alvo: -(a - b) = b - a
+  Calculamos:
+    (a - b) + (b - a)
+      = (a + (-b)) + (b + (-a))   [açúcar]
+      = a + ((-b) + (b + (-a)))   [(+)-ass]
+      = a + (((-b) + b) + (-a))   [(+)-ass]
+      = a + (0 + (-a))            [((-)-invL-(+))]
+      = a + (-a)                  [(0-idL-(+))]
+      = 0                         [((-)-invR-(+))]
+    (a - b) + (-(a - b))
+      = 0                         [(-)-invR-(+)]
+      = (a - b) + (b - a)
+  --Dados: (a - b) + (b - a) = 0, (a - b) + (-(a - b)) = 0
+  Logo -(a - b) = b - a           [((+)-canL) (a - b)]
+Parte-R:    --Alvo: -(a + b) = -a - b
+  Calculamos:
+    (a + b) + (-a - b)
+      = (a + b) + ((-a) + (-b))   [açúcar]
+      = a + (b + ((-a) + (-b)))   [(+)-ass]
+      = a + (b + ((-b) + (-a)))   [((+)-com) (-a) (-b)]
+      = a + ((b + (-b)) + (-a))   [(+)-ass]
+      = a + (0 + (-a))            [(-)-invR-(+)]
+      = a + (-a)                  [0-idL-(+)]
+      = 0                         [(-)-invR-(+)]
+    (a + b) + (-(a + b))
+      = 0                         [(-)-invR-(+)]
+      = (a + b) + (-a - b)
+  --Dados: (a + b) + (-a - b) = 0, (a + b) + (-(a + b)) = 0
+  Logo -(a + b) = -a - b          [((+)-canL) (a + b)]
+
+x3.14.
+Vide ../idma.txt

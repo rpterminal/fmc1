@@ -1,0 +1,35 @@
+Θ. (+)-canR ⇐⇒ (∀c)(∀x, y)[x + c = y + c ⇒ x = y]
+Sejam c, u, v: Int. --Dados: c, u, v: Int; Alvo: u + c = v + c ⇒ u = v
+Suponha u + c = v + c. --Dados: u + c = v + c; Alvo: u = v
+Logo (u + c) + (-c) = (v + c) + (-c)    [(+ (-c))]
+Logo u + (c + (-c)) = v + (c + (-c))    [(+)-ass]
+Logo u + 0 = v + 0    [((-)-invR-(+)) c]
+Logo u = v    [(0-idR-(+))]
+Imediato.
+∎
+Θ. (+)-canL ⇐⇒ (∀c)(∀x, y)[c + x = c + y ⇒ x = y]
+Sejam c, u, v: Int. --Dados: c, u, v: Int; Alvo: c + u = c + v ⇒ u = v
+Suponha c + u = c + v. --Dados: c + u = c + v; Alvo: u = v
+Logo u + c = v + c.   [((+)-com) c u; ((+)-com) c v]
+Logo u = v.   [(+)-canR]
+Imediato.
+∎
+
+Θ. 0-annR-(·) ⇐⇒ (∀x)[x · 0 = 0]
+Seja x: Int. --Dados: x: Int; Alvo: x · 0 = 0
+Calculamos:
+  x · 0 + 0
+    = x · 0    [0-idR-(+)]
+    = x · (0 + 0)   [0-idR-(+)]
+    = (x · 0) + (x · 0)    [(·)-distL]
+--Dados: (x · 0) + 0 = (x · 0) + (x · 0)
+Logo 0 = x · 0. [((+)-canL) (x · 0)]
+Imediato.
+∎
+Θ. 0-annL-(·) ⇐⇒ (∀x)[0 · x = 0]
+Seja x: Int. --Dados: x: Int; Alvo: 0 · x = 0
+Calculamos:
+  0 · x
+    = x · 0   [(·)-com]
+    = 0   [0-annR-(·)]
+∎
