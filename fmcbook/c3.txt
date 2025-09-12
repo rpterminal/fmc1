@@ -306,3 +306,34 @@ Parte-R:    --Alvo: -(a + b) = -a - b
 
 x3.14.
 Vide ../idma.txt
+
+x3.15.
+i. (·)-canR ⇐⇒ (∀c, a, b)[c ≠ 0 & ac = bc ⇒ a = b]
+Sejam c, a, b : Int.    -- c, a, b : Int ⊢ c ≠ 0 & ac = bc ⇒ a = b
+Suponha c ≠ 0 & ac = bc.    -- c ≠ 0 & ac = bc ⊢ a = b
+Ext-LR em c ≠ 0 & ac = bc.    -- c ≠ 0, ac = bc
+Como x3.2.iii, logo ac - bc = 0.    -- ac - bc = 0
+Calculamos:
+  (a - b)c
+    = (a + (-b))c
+    = ac + (-b)c    [(+)-distR-(·)]
+    = ac + (-(bc))  [x3.11]
+    = ac - bc
+Logo, (a - b)c = 0.    -- (a - b)c = 0
+Aplico (NZD) em (a - b)c = 0.    -- a - b = 0 ∨ c = 0
+Separo em casos a partir de a - b = 0 ∨ c = 0.
+Caso L:    -- a - b = 0
+  Aplico x3.2(iii) em a - b = 0.    -- a = b
+  Imediato.
+Caso R:    -- c = 0
+  Aplico c ≠ 0 em c = 0.    -- ⊥
+  Contradição.
+∎
+ii. (·)-canL ⇐⇒ (∀c, a, b)[c ≠ 0 ∧ ca = cb ⇒ a = b]
+Sejam c, a, b : Int.    -- c, a, b : Int ⊢ c ≠ 0 ∧ ca = cb ⇒ a = b
+Suponha c ≠ 0 ∧ ca = cb.    -- c ≠ 0 ∧ ca = cb ⊢ a = b
+Ext-LR em c ≠ 0 ∧ ca = cb.    -- c ≠ 0, ca = cb
+Logo, ac = bc. [(·)-com c a; (·)-com c b]    -- ac = bc
+Logo, a = b.  [(·)-canR]    -- a = b
+Imediato.
+∎
