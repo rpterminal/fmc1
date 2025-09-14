@@ -402,9 +402,9 @@ Sejam a, b, d : Int.    -- a, b, d : Int ⊢ d | a ∧ d | b ⇒ (∀x, y)[d | a
 Suponha d | a ∧ d | b.    -- d | a ∧ d | b ⊢ (∀x, y)[d | ax + by]
 Sejam x, y : Int.    -- x, y : Int ⊢ d | ax + by
 Ext-LR em d | a ∧ d | b.    -- d | a, d | b
-Aplico 13.a.i em d | a para obter d | ax.    -- d | ax
-Aplico 13.a.i em d | b para obter d | by.    -- d | by
+Aplico 3.13.a.i em d | a para obter d | ax.    -- d | ax
+Aplico 3.13.a.i em d | b para obter d | by.    -- d | by
 Junte d | ax e d | by.    -- d | ax ∧ d | by
-Aplico 13.a.ii em d | ax ∧ d | by para obter d | ax + by.    -- d | ax + by
+Aplico 3.13.a.ii em d | ax ∧ d | by para obter d | ax + by.    -- d | ax + by
 Imediato.
 ∎
