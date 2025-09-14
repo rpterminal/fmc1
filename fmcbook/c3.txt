@@ -337,3 +337,74 @@ Logo, ac = bc. [(·)-com c a; (·)-com c b]    -- ac = bc
 Logo, a = b.  [(·)-canR]    -- a = b
 Imediato.
 ∎
+
+x3.16.
+i. (∀a)(∃k)[a = ak]
+Seja a : Int.    -- a : Int ⊢ (∃k)[a = ak]
+Escolho k = 1.    -- k = 1 ⊢ a = a1
+Imediato.    [1-idR-(·) a]
+∎
+ii. (∀a, b, c)(∃k)[b = ak ∧ b = ck ⇒ c = ak]
+Sejam a, b, c : Int.    -- a, b, c : Int ⊢ (∃k)[b = ak ∧ b = ck ⇒ c = ak]
+Escolho k = 1.    -- k = 1 ⊢ b = a1 ∧ b = c1 ⇒ c = a1
+Suponha b = a1 ∧ b = c1.    -- b = a1 ∧ b = c1 ⊢ c = a1
+Logo, b = a ∧ b = c.    [1-idR-(·)]
+Ext-LR em b = a ∧ b = c.    -- b = a, b = c
+Logo, a = a1.    [1-idR-(·)]  -- a = a1
+Logo, c = a1.    -- c = a1
+Imediato.
+∎
+
+x3.17.
+(∀a)(∃k)[a = 1k]
+Seja a : Int.    -- a : Int ⊢ (∃k)[a = 1k]
+Escolho k = a.    -- k = a ⊢ a = 1a
+Como 1-idL-(·), logo a = 1a
+Imediato.
+∎
+
+x3.18.
+(∀a)(∃k)[0 = ak]
+Seja a : Int.    -- a : Int ⊢ (∃k)[0 = ak]
+Escolho k = 0.    -- k = 0 ⊢ 0 = a0
+Como 0-annR-(·), a0 = 0.    -- a0 = 0
+Imediato.
+∎
+
+x3.19.
+a) i. (∀a, d, x)[d | a ⇒ d | ax]
+Sejam a, d, x : Int.    -- d | a ⇒ d | ax
+Suponha d | a.    -- d | a ⊢ d | ax
+Seja k₁ tal que a = dk₁.    -- a = dk₁
+Calculamos:
+  ax
+    = (dk₁)x    [Subst.]
+    = d(k₁x)    [(·)-ass d k₁ x]
+Escolho k₂ = k₁x.    -- k₂ = k₁x ⊢ ax = d(k₁x)
+Imediato.
+∎
+ii. (∀a, b, d)[d | a ∧ d | b ⇒ d | a + b]
+Sejam a, b, d : Int.    -- d | a ∧ d | b ⇒ d | a + b
+Suponha d | a ∧ d | b.    -- d | a ∧ d | b ⊢ d | a + b
+Ext-LR em d | a ∧ d | b.    -- d | a, d | b
+Seja k₁ tal que a = dk₁.    -- a = dk₁
+Seja k₂ tal que b = dk₂.    -- b = dk₂
+Calculamos:
+  a + b
+    = dk₁ + dk₂   [Hip.]
+    = d(k₁ + k₂)   [(+)-distL-(·)]
+-- a + b = d(k₁ + k₂)
+Escolho k₃ = k₁ + k₂.   -- ⊢ a + b = d(k₁ + k₂)
+Imediato.
+∎
+iii. (∀a, b, d)[d | a ∧ d | b ⇒ (∀x, y)[d | ax + by]]
+Sejam a, b, d : Int.    -- a, b, d : Int ⊢ d | a ∧ d | b ⇒ (∀x, y)[d | ax + by]
+Suponha d | a ∧ d | b.    -- d | a ∧ d | b ⊢ (∀x, y)[d | ax + by]
+Sejam x, y : Int.    -- x, y : Int ⊢ d | ax + by
+Ext-LR em d | a ∧ d | b.    -- d | a, d | b
+Aplico 13.a.i em d | a para obter d | ax.    -- d | ax
+Aplico 13.a.i em d | b para obter d | by.    -- d | by
+Junte d | ax e d | by.    -- d | ax ∧ d | by
+Aplico 13.a.ii em d | ax ∧ d | by para obter d | ax + by.    -- d | ax + by
+Imediato.
+∎
