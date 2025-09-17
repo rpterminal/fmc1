@@ -1,5 +1,36 @@
+2022.1 IDMa.1
 A.
+Person ⨯ Nat → Prop
+Int → Prop
+Person → Person
+Int ⨯ Int ⨯ Int → Prop
+Var → Cmd
+Prop → Cmd
+String ⨯ Nat → Prop
+Type ⨯ Prop → Cmd
+B.B1.
+Sejam c, u, v: Int. --Dados: c, u, v: Int; Alvo: u + c = v + c ⇒ u = v
+Suponha u + c = v + c. --Dados: u + c = v + c; Alvo: u = v
+Logo (u + c) + (-c) = (v + c) + (-c)    [(+ (-c))]
+Logo u + (c + (-c)) = v + (c + (-c))    [(+)-ass]
+Logo u + 0 = v + 0    [((-)-invR-(+)) c]
+Logo u = v    [(0-idR-(+))]
+Imediato.
+∎
+C.C3.
+Seja x: Int. --Dados: x: Int; Alvo: x · 0 = 0
+Calculamos:
+  x · 0 + 0
+    = x · 0    [0-idR-(+)]
+    = x · (0 + 0)   [0-idR-(+)]
+    = (x · 0) + (x · 0)    [(·)-distL]
+--Dados: (x · 0) + 0 = (x · 0) + (x · 0)
+Logo 0 = x · 0. [((+)-canL) (x · 0)]
+Imediato.
+∎
+
 2022.2 IDMa.1
+A.
 Person ⨯ Lang → Prop
 Var ⨯ Prop → Cmd
 Prop → Cmd
@@ -120,4 +151,4 @@ Caso-R:
   Logo ab = 0b.
   Como b ≠ 0, logo a = 0.    [(·)-canR]
   Imediato.
-∎
+∎⛦
