@@ -1,0 +1,123 @@
+A.
+2022.2 IDMa.1
+Person ⨯ Lang → Prop
+Var ⨯ Prop → Cmd
+Prop → Cmd
+Person
+Prop ⨯ Int → Prop
+Prop → Cmd
+Type ⨯ Prop → Cmd
+City ⨯ Nat → Prop
+B.
+¬(P ∧ Q) ⇒ ¬P ∨ ¬Q) ∨ (¬(P ∧ Q) ⇐ ¬P ∨ ¬Q)
+Esc-R.
+Suponha ¬P ∨ ¬Q.
+Suponha P ∧ Q.
+Ext-LR em P ∧ Q para obter P e Q.
+Separo em casos a partir de ¬P ∨ ¬Q.
+Caso-L:
+  Aplico ¬P em P para obter ⊥.
+  Contradição.
+Caso-R:
+  Aplico ¬Q em Q para obter ⊥.
+  Contradição.
+∎
+C.
+(∀a, u, v : Int)[a | u ∨ a | v ⇒ (∀x : Int)[a | (uv)x]]
+Sejam a, u, v : Int.
+Suponha h: a | u ∨ a | v.
+Seja x : Int.
+Separo em casos a partir de h.
+Caso-L:
+  Seja k₁ tal que u = ak₁.
+  Calculamos:
+    (uv)x
+      ≡ ((ak₁)v)x
+      = a((k₁v)x)   [(·)-ass]
+  Escolho k = (k₁v)x.
+  Imediato.
+Caso-R:
+  Seja k₁ tal que u = ak₁.
+  Calculamos:
+    (uv)x
+      ≡ ((ak₂)v)x
+      = a((k₂v)x)   [(·)-ass]
+  Escolho k = (k₂v)x.
+  Imediato.
+∎
+
+2023.2 IDMa.1
+A.
+Person → Prop
+Person ⨯ Lang ⨯ Nat → Prop
+Var ⨯ Prop → Prop
+Type → Cmd
+Prop → Cmd
+Prop ⨯ Int ⨯ (Int → Prop) → Prop
+Prop ⨯ Int → Prop
+Type ⨯ Prop → Prop
+B.
+((P ∧ Q) ⇒ R) ⇒ ((P ⇒ Q) ⇒ R) ∨ (P ⇒ (Q ⇒ R))
+Suponha h: (P ∧ Q) ⇒ R.
+Esc-R.
+Suponha P.
+Suponha Q.
+Junte P e Q para obter P ∧ Q.
+Aplico h em P ∧ Q para obter R.
+Imediato.
+∎
+C.C1.
+(∀a)[(-1)a = -a]
+Seja a : Int.
+Calculamos:
+  a + (-1)a
+    = (1 · a) + (-1)a   [1-idL-(·)]
+    = (1 + (-1)) · a    [(+)-distR-(·)]
+    = 0 · a             [(-)-invR-(+)]
+    = 0                 [0-annL-(·)]
+  a + (-a)
+    = 0                 [(-)-invR-(+)]
+Logo (-1)a = -a.        [(+)-canL a]
+Imediato.
+∎
+
+2024.2 IDMa.1
+A.
+Prop → Cmd
+Prop ⨯ (Int ⨯ Int → Int) ⨯ (Int → Prop) → Prop
+Person ⨯ Nat → Prop
+Person ⨯ City ⨯ Nat → Prop
+Var ⨯ Type ⨯ Prop → Prop
+Type → Cmd
+Prop ⨯ Person → Prop
+Type ⨯ Int ⨯ Int → Prop
+B.B1.
+¬P ∨ ¬Q ⇒ ¬(P ∧ Q)
+Suponha ¬P ∨ ¬Q.
+Suponha P ∧ Q.
+Ext-LR em P ∧ Q para obter P e Q.
+Separo em casos a partir de ¬P ∨ ¬Q.
+Caso-L:
+  Aplico ¬P em P para obter ⊥.
+  Contradição.
+Caso-R:
+  Aplico ¬Q em Q para obter ⊥.
+  Contradição.
+∎
+
+C.C3.
+(∀a, b)[ab = 0 ⇒ a = 0 ∨ b = 0]
+Sejam a, b : Int.
+Suponha ab = 0.
+LEM[b = 0]
+Separo em casos a partir de b = 0 ∨ b ≠ 0.
+Caso-L:
+  Esc-R.
+  Imediato.
+Caso-R:
+  Esc-L.
+  Logo 0b = 0.   [0-annL-(·)]
+  Logo ab = 0b.
+  Como b ≠ 0, logo a = 0.    [(·)-canR]
+  Imediato.
+∎
