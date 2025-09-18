@@ -242,10 +242,9 @@ Parte-L:  --Alvo: (-a)b = -(ab)
       = (a + (-a)) · b    [(+)-distR-(·)]
       = 0 · b     [(-)-invR-(+)]
       = 0     [0-annL-(·)]
-    ab + (-a)b
-      = ab + (-(ab))    [(-)-invR-(+)]
   --Dados: ab + (-a)b = 0, ab + (-a)b = ab + (-(ab))
-  Logo, (-a)b = -(ab)   [((+)-canL) ab]
+  Logo ab + (-a)b = ab + (-(ab)).    [(-)-invR-(+)]
+  Logo (-a)b = -(ab)   [((+)-canL) ab]
   Imediato.
 Parte-R:  --Alvo: -(ab) = a(-b)
   Calculamos:
@@ -253,9 +252,8 @@ Parte-R:  --Alvo: -(ab) = a(-b)
       = a · (b + (-b))    [(+)-distL-(·)]
       = a · 0     [(-)-invR-(+)]
       = 0     [0-annR-(·)]
-    ab + a(-b)
-      = ab + (-(ab))    [(-)-invR-(+)]
   --Dados: ab + a(-b) = 0, ab + a(-b) = ab + (-(ab))
+  Logo ab + a(-b) = ab + (-(ab))    [(-)-invR-(+)]
   Logo, -(ab) = a(-b)   [((+)-canL) ab]
   Imediato.
 ∎
@@ -277,32 +275,29 @@ Split.
 Parte-L:    --Alvo: -(a - b) = b - a
   Calculamos:
     (a - b) + (b - a)
-      = (a + (-b)) + (b + (-a))   [açúcar]
+      ≡ (a + (-b)) + (b + (-a))
       = a + ((-b) + (b + (-a)))   [(+)-ass]
       = a + (((-b) + b) + (-a))   [(+)-ass]
       = a + (0 + (-a))            [((-)-invL-(+))]
       = a + (-a)                  [(0-idL-(+))]
       = 0                         [((-)-invR-(+))]
-    (a - b) + (-(a - b))
-      = 0                         [(-)-invR-(+)]
-      = (a - b) + (b - a)
-  --Dados: (a - b) + (b - a) = 0, (a - b) + (-(a - b)) = 0
+  --Dados: (a - b) + (b - a) = 0
+  Logo (a - b) + (b - a) = (a - b) + (-(a - b)).    [(-)-invL-(+)]
   Logo -(a - b) = b - a           [((+)-canL) (a - b)]
 Parte-R:    --Alvo: -(a + b) = -a - b
   Calculamos:
     (a + b) + (-a - b)
-      = (a + b) + ((-a) + (-b))   [açúcar]
+      ≡ (a + b) + ((-a) + (-b))
       = a + (b + ((-a) + (-b)))   [(+)-ass]
       = a + (b + ((-b) + (-a)))   [((+)-com) (-a) (-b)]
       = a + ((b + (-b)) + (-a))   [(+)-ass]
       = a + (0 + (-a))            [(-)-invR-(+)]
       = a + (-a)                  [0-idL-(+)]
       = 0                         [(-)-invR-(+)]
-    (a + b) + (-(a + b))
-      = 0                         [(-)-invR-(+)]
-      = (a + b) + (-a - b)
-  --Dados: (a + b) + (-a - b) = 0, (a + b) + (-(a + b)) = 0
+  --Dados: (a + b) + (-a - b) = 0
+  Logo (a + b) + (-a - b) = (a - b) + (-(a - b)).    [(-)-invL-(+)]
   Logo -(a + b) = -a - b          [((+)-canL) (a + b)]
+∎
 
 x3.14.
 Vide ../idma.txt
@@ -315,7 +310,7 @@ Ext-LR em c ≠ 0 & ac = bc.    -- c ≠ 0, ac = bc
 Como x3.2.iii, logo ac - bc = 0.    -- ac - bc = 0
 Calculamos:
   (a - b)c
-    = (a + (-b))c
+    ≡ (a + (-b))c
     = ac + (-b)c    [(+)-distR-(·)]
     = ac + (-(bc))  [x3.11]
     = ac - bc
@@ -323,7 +318,7 @@ Logo, (a - b)c = 0.    -- (a - b)c = 0
 Aplico (NZD) em (a - b)c = 0.    -- a - b = 0 ∨ c = 0
 Separo em casos a partir de a - b = 0 ∨ c = 0.
 Caso L:    -- a - b = 0
-  Aplico x3.2(iii) em a - b = 0.    -- a = b
+  Aplico x3.2.iii em a - b = 0.    -- a = b
   Imediato.
 Caso R:    -- c = 0
   Aplico c ≠ 0 em c = 0.    -- ⊥
