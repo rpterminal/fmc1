@@ -9,15 +9,38 @@ variable (P Q R : Prop)
 
 theorem doubleneg_intro :
   P → ¬ ¬ P  := by
-  sorry
+  intro hP
+  intro hnP
+  apply hnP
+  exact hP
 
 theorem doubleneg_elim :
   ¬ ¬ P → P  := by
-  sorry
+  intro hnnP
+  by_cases hP : P
+  -- case P
+  exact hP
+  -- case ¬P
+  exfalso
+  exact hnnP hP
 
 theorem doubleneg_law :
   ¬ ¬ P ↔ P  := by
-  sorry
+  constructor
+  -- ⇒
+  intro hnnP
+  by_cases hP : P
+  -- case P
+  exact hP
+  -- case ¬P
+  exfalso
+  exact hnnP hP
+  -- ⇐
+  intro hP
+  intro hnP
+  apply hnP
+  exact hP
+
 
 
 ------------------------------------------------
@@ -26,11 +49,20 @@ theorem doubleneg_law :
 
 theorem disj_comm :
   (P ∨ Q) → (Q ∨ P)  := by
-  sorry
+  intro hor
+  rcases hor with (hP | hQ)
+  right
+  exact hP
+  left
+  exact hQ
 
 theorem conj_comm :
   (P ∧ Q) → (Q ∧ P)  := by
-  sorry
+  intro hand
+  rcases hand with ⟨hP, hQ⟩
+  constructor
+  exact hQ
+  exact hP
 
 
 ------------------------------------------------
@@ -39,11 +71,23 @@ theorem conj_comm :
 
 theorem impl_as_disj_converse :
   (¬ P ∨ Q) → (P → Q)  := by
-  sorry
+  intro hnPorQ
+  intro hP
+  rcases hnPorQ with (hnP | hQ)
+  exfalso
+  apply hnP hP
+  exact hQ
+
+
 
 theorem disj_as_impl :
   (P ∨ Q) → (¬ P → Q)  := by
-  sorry
+  intro poq
+  intro hnp
+  rcases poq with (hp | hq)
+  exfalso
+  apply hnp hp
+  exact hq
 
 
 ------------------------------------------------
@@ -52,15 +96,38 @@ theorem disj_as_impl :
 
 theorem impl_as_contrapositive :
   (P → Q) → (¬ Q → ¬ P)  := by
-  sorry
+  intro piq
+  intro hnq
+  intro hp
+  have hq : Q := piq hp
+  exact hnq hq
 
 theorem impl_as_contrapositive_converse :
   (¬ Q → ¬ P) → (P → Q)  := by
-  sorry
+  intro nqinp
+  intro hp
+  by_cases hq: Q
+  exact hq
+  exfalso
+  have hnp : ¬P := nqinp hq
+  exact hnp hp
+
 
 theorem contrapositive_law :
   (P → Q) ↔ (¬ Q → ¬ P)  := by
-  sorry
+  constructor
+  intro piq
+  intro hnq
+  intro hp
+  have hq : Q := piq hp
+  exact hnq hq
+  intro nqinp
+  intro hp
+  by_cases hq: Q
+  exact hq
+  exfalso
+  have hnp : ¬P := nqinp hq
+  exact hnp hp
 
 
 ------------------------------------------------
@@ -69,7 +136,13 @@ theorem contrapositive_law :
 
 theorem lem_irrefutable :
   ¬ ¬ (P ∨ ¬ P)  := by
-  sorry
+  intro nponp
+  apply nponp
+  right
+  intro hp
+  apply nponp
+  left
+  exact hp
 
 
 ------------------------------------------------
@@ -78,8 +151,12 @@ theorem lem_irrefutable :
 
 theorem peirce_law_weak :
   ((P → Q) → P) → ¬ ¬ P  := by
-  sorry
-
+  intro piqip
+  intro hnp
+  apply hnp
+  apply piqip
+  intro hp
+  contradiction
 
 ------------------------------------------------
 -- Linearity of →
@@ -87,8 +164,13 @@ theorem peirce_law_weak :
 
 theorem impl_linear :
   (P → Q) ∨ (Q → P)  := by
-  sorry
-
+  by_cases hp : P
+  right
+  intro hq
+  exact hp
+  left
+  intro hp2
+  contradiction
 
 ------------------------------------------------
 -- Interdefinability of ∨,∧
@@ -96,11 +178,21 @@ theorem impl_linear :
 
 theorem disj_as_negconj :
   P ∨ Q → ¬ (¬ P ∧ ¬ Q)  := by
-  sorry
+  intro porq
+  intro npandnq
+  rcases npandnq with ⟨hnp, hnq⟩
+  rcases porq with (hp | hq)
+  apply hnp hp
+  apply hnq hq
 
 theorem conj_as_negdisj :
   P ∧ Q → ¬ (¬ P ∨ ¬ Q)  := by
-  sorry
+  intro pandq
+  intro npornq
+  rcases pandq with ⟨hp, hq⟩
+  rcases npornq with (hnp | hnq)
+  contradiction
+  contradiction
 
 
 ------------------------------------------------
@@ -109,27 +201,89 @@ theorem conj_as_negdisj :
 
 theorem demorgan_disj :
   ¬ (P ∨ Q) → (¬ P ∧ ¬ Q)  := by
-  sorry
+  intro nporq
+  constructor
+  intro hp
+  apply nporq
+  left
+  exact hp
+  intro hq
+  apply nporq
+  right
+  exact hq
 
 theorem demorgan_disj_converse :
   (¬ P ∧ ¬ Q) → ¬ (P ∨ Q)  := by
-  sorry
+  intro npandnq
+  intro nporq
+  rcases npandnq with ⟨hnp, hnq⟩
+  rcases nporq with (hp | hq)
+  exact hnp hp
+  exact hnq hq
 
 theorem demorgan_conj :
   ¬ (P ∧ Q) → (¬ Q ∨ ¬ P)  := by
-  sorry
+  intro nhporq
+  by_cases hp : P
+  left
+  intro hq
+  apply nhporq
+  constructor
+  exact hp
+  exact hq
+  right
+  exact hp
 
 theorem demorgan_conj_converse :
   (¬ Q ∨ ¬ P) → ¬ (P ∧ Q)  := by
-  sorry
+  intro hnqornp
+  intro hpandq
+  rcases hpandq with ⟨hp, hq⟩
+  rcases hnqornp with (hnq | hnp)
+  contradiction
+  contradiction
 
 theorem demorgan_conj_law :
   ¬ (P ∧ Q) ↔ (¬ Q ∨ ¬ P)  := by
-  sorry
+  constructor
+  intro nhpandq
+  by_cases hp : P
+  left
+  intro hq
+  apply nhpandq
+  constructor
+  exact hp
+  exact hq
+  right
+  exact hp
+  intro nqandnp
+  intro pandq
+  rcases pandq with ⟨hp, hq⟩
+  rcases nqandnp with (hnq | hnp)
+  contradiction
+  contradiction
+
+
 
 theorem demorgan_disj_law :
   ¬ (P ∨ Q) ↔ (¬ P ∧ ¬ Q)  := by
-  sorry
+  constructor
+  intro nhporq
+  constructor
+  intro hp
+  apply nhporq
+  left
+  exact hp
+  intro hq
+  apply nhporq
+  right
+  exact hq
+  intro hnpandnq
+  intro hporq
+  rcases hnpandnq with ⟨hnp, hnq⟩
+  rcases hporq with (hp | hq)
+  contradiction
+  contradiction
 
 
 ------------------------------------------------
@@ -138,20 +292,66 @@ theorem demorgan_disj_law :
 
 theorem distr_conj_disj :
   P ∧ (Q ∨ R) → (P ∧ Q) ∨ (P ∧ R)  := by
-  sorry
+  intro pandqorr
+  rcases pandqorr with ⟨hp, qorr⟩
+  rcases qorr with (hq | hr)
+  left
+  constructor
+  exact hp
+  exact hq
+  right
+  constructor
+  exact hp
+  exact hr
 
 theorem distr_conj_disj_converse :
   (P ∧ Q) ∨ (P ∧ R) → P ∧ (Q ∨ R)  := by
-  sorry
+  intro pandqorpandr
+  constructor
+  rcases pandqorpandr with (pandq | pandr)
+  rcases pandq with ⟨hp, hq⟩
+  exact hp
+  rcases pandr with ⟨hp, hr⟩
+  exact hp
+  rcases pandqorpandr with (pandq | pandr)
+  rcases pandq with ⟨hp, hq⟩
+  left
+  exact hq
+  rcases pandr with ⟨hp, hr⟩
+  right
+  exact hr
 
 theorem distr_disj_conj :
   P ∨ (Q ∧ R) → (P ∨ Q) ∧ (P ∨ R)  := by
-  sorry
+  intro porqandr
+  constructor
+  rcases porqandr with (hp | qandr)
+  left
+  exact hp
+  rcases qandr with ⟨hq, hr⟩
+  right
+  exact hq
+  rcases porqandr with (hp | qandr)
+  left
+  exact hp
+  rcases qandr with ⟨hq, hr⟩
+  right
+  exact hr
 
 theorem distr_disj_conj_converse :
   (P ∨ Q) ∧ (P ∨ R) → P ∨ (Q ∧ R)  := by
-  sorry
-
+  intro porqandporr
+  rcases porqandporr with ⟨porq, porr⟩
+  rcases porq with (hp | hq)
+  left
+  exact hp
+  rcases porr with (hp | hr)
+  left
+  exact hp
+  right
+  constructor
+  exact hq
+  exact hr
 
 ------------------------------------------------
 -- Currying
@@ -159,12 +359,19 @@ theorem distr_disj_conj_converse :
 
 theorem curry_prop :
   ((P ∧ Q) → R) → (P → (Q → R))  := by
-  sorry
+  intro pandqir
+  intro hp
+  intro hq
+  have hpandhq : P ∧ Q := And.intro hp hq
+  exact pandqir hpandhq
 
 theorem uncurry_prop :
   (P → (Q → R)) → ((P ∧ Q) → R)  := by
-  sorry
-
+  intro piqir
+  intro pandq
+  rcases pandq with ⟨hp, hq⟩
+  have qir : Q → R := piqir hp
+  apply qir hq
 
 ------------------------------------------------
 -- Reflexivity of →
@@ -172,7 +379,8 @@ theorem uncurry_prop :
 
 theorem impl_refl :
   P → P  := by
-  sorry
+  intro hp
+  exact hp
 
 
 ------------------------------------------------
@@ -181,20 +389,27 @@ theorem impl_refl :
 
 theorem weaken_disj_right :
   P → (P ∨ Q)  := by
-  sorry
+  intro hp
+  left
+  exact hp
 
 theorem weaken_disj_left :
   Q → (P ∨ Q)  := by
-  sorry
+  intro hq
+  right
+  exact hq
 
 theorem weaken_conj_right :
   (P ∧ Q) → P  := by
-  sorry
+  intro pandq
+  rcases pandq with ⟨hp, hq⟩
+  exact hp
 
 theorem weaken_conj_left :
   (P ∧ Q) → Q  := by
-  sorry
-
+  intro pandq
+  rcases pandq with ⟨hp, hq⟩
+  exact hq
 
 ------------------------------------------------
 -- Idempotence of ∨,∧
@@ -202,12 +417,25 @@ theorem weaken_conj_left :
 
 theorem disj_idem :
   (P ∨ P) ↔ P  := by
-  sorry
+  constructor
+  intro porp
+  rcases porp with (hp | hp)
+  exact hp
+  exact hp
+  intro hp
+  left
+  exact hp
 
 theorem conj_idem :
   (P ∧ P) ↔ P := by
-  sorry
-
+  constructor
+  intro pandp
+  rcases pandp with ⟨hp1, hp2⟩
+  exact hp1
+  intro hp
+  constructor
+  exact hp
+  exact hp
 
 ------------------------------------------------
 -- Bottom, Top
@@ -215,12 +443,12 @@ theorem conj_idem :
 
 theorem false_bottom :
   False → P := by
-  sorry
+  exact False.elim
 
 theorem true_top :
   P → True  := by
-  sorry
-
+  intro hp
+  exact True.intro
 
 end propositional
 

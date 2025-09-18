@@ -366,7 +366,7 @@ Como 0-annR-(·), a0 = 0.    -- a0 = 0
 Imediato.
 ∎
 
-x3.19.
+xX3.19.
 a) i. (∀a, d, x)[d | a ⇒ d | ax]
 Sejam a, d, x : Int.    -- d | a ⇒ d | ax
 Suponha d | a.    -- d | a ⊢ d | ax
@@ -403,3 +403,27 @@ Junte d | ax e d | by.    -- d | ax ∧ d | by
 Aplico 3.19.a.ii em d | ax ∧ d | by para obter d | ax + by.    -- d | ax + by
 Imediato.
 ∎
+b) iii. (∀a, b, d)[d | a ∧ d | b ⇒ (∀x, y)[d | ax + by]]
+Sejam a, b, d : Int.
+Suponha h: d | a ∧ d | b.
+Sejam x, y : Int.
+Extraio LR em h para obter h1 e h2.
+Seja k₁ tal que a = dk₁.
+Seja k₂ tal que b = dk₂.
+Calculamos:
+  ax + by
+    ≡ (dk₁)x + (dk₂)y
+    = d(k₁x) + d(k₂y)    [((·)-ass) d k₁ x; ((·)-ass) d k₂ y]
+    = d(k₁x + k₂y)       [((+)-distL-(·)) d]
+Escolho k₃ = k₁x + k₂y.
+Imediato.
+∎
+i. (∀a, d, x)[d | a ⇒ d | ax]
+Sejam a, d, x : Int.
+Suponha d | a.
+
+xX3.20.
+(∀a, b)[(a | b ⇒ (-a | b ∧ a | -b)) ⇒ -a | -b]
+
+xX3.21.
+(∀a, b, c)
