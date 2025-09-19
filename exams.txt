@@ -25,7 +25,7 @@ Calculamos:
     = x · (0 + 0)   [0-idR-(+)]
     = (x · 0) + (x · 0)    [(·)-distL]
 --Dados: (x · 0) + 0 = (x · 0) + (x · 0)
-Logo 0 = x · 0. [((+)-canL) (x · 0)]
+Logo 0 = x · 0. [((+)-canL) (x · 0)]    -- ou [(+)-resR]
 Imediato.
 ∎
 
@@ -67,7 +67,7 @@ Caso-L:
       = a((k₁v)x)   [(·)-ass]
   Escolho k = (k₁v)x.
   Imediato.
-Caso-R:
+Caso-R:    -- poderia ser 'Similar.'?
   Seja k₁ tal que u = ak₁.
   Calculamos:
     (uv)x
@@ -93,7 +93,12 @@ Suponha h: (P ∧ Q) ⇒ R.
 Esc-R.
 Suponha P.
 Suponha Q.
-Junte P e Q para obter P ∧ Q.
+Vou demonstrar P ∧ Q:
+  Split.
+  Parte-L:
+    Imediato em P.
+  Parte-R:
+    Imediato em Q.
 Aplico h em P ∧ Q para obter R.
 Imediato.
 ∎
@@ -102,13 +107,13 @@ C.C1.
 Seja a : Int.
 Calculamos:
   a + (-1)a
-    = (1 · a) + (-1)a   [1-idL-(·)]
+    = (1 · a) + (-1)a   [(1-idL-(·)) a]
     = (1 + (-1)) · a    [(+)-distR-(·)]
-    = 0 · a             [(-)-invR-(+)]
+    = 0 · a             [((-)-invR-(+)) 1]
     = 0                 [0-annL-(·)]
   a + (-a)
     = 0                 [(-)-invR-(+)]
-Logo (-1)a = -a.        [(+)-canL a]
+Logo (-1)a = -a.        [((+)-canL) a]    -- ou [(+)-resR]
 Imediato.
 ∎
 
@@ -135,12 +140,11 @@ Caso-R:
   Aplico ¬Q em Q para obter ⊥.
   Contradição.
 ∎
-
 C.C3.
 (∀a, b)[ab = 0 ⇒ a = 0 ∨ b = 0]
 Sejam a, b : Int.
 Suponha ab = 0.
-LEM[b = 0]
+LEM[b].
 Separo em casos a partir de b = 0 ∨ b ≠ 0.
 Caso-L:
   Esc-R.
@@ -148,7 +152,7 @@ Caso-L:
 Caso-R:
   Esc-L.
   Logo 0b = 0.   [0-annL-(·)]
-  Logo ab = 0b.
+  Logo ab = 0b.    -- poderia ser "Como... logo..."?
   Como b ≠ 0, logo a = 0.    [(·)-canR]
   Imediato.
 ∎⛦

@@ -69,7 +69,7 @@ Sejam x, y, z : Int.   --Dados: x, y, z : Int; x + y = z ⇐⇒ y = z − x
       = 0 + z           [((-)-invR-(+)) x]
       = z               [(0-idL-(+)) z]
 ∎
-iii. (∀a, b)[a = b ⇐⇒ a − b = 0
+iii. (∀a, b)[a = b ⇐⇒ a − b = 0]
 Sejam x, y : Int.   --Dados: x, y : Int; Alvo: x = y ⇐⇒ x - y = 0
 ⇒:   --Alvo: a = b ⇒ a - b = 0
   Suponha a = b.   --Dados: a = b; Alvo: a - b = 0
@@ -133,7 +133,7 @@ i. (∀a, b, c)[a · c = b · c ⇒ a = b]
 ii. (∀a, b, c)[c · a = c · b ⇒ a = b]
 Vide x3.4.
 
-x3.7.
+xX3.7.
 (∀u,v)[((∀x)[x = x · u] ∧ (∀x)[x = x · v]) ⇒ u = v]
 Sejam u, v : Int.   --Dados: u, v; Alvo: ((∀x)[x = x · u] ∧ (∀x)[x = x · v]) ⇒ u = v
 Suponha h: (∀x)[x = x · u] ∧ (∀x)[x = x · v]. --Dados: h; Alvo: u = v
@@ -201,12 +201,12 @@ Unicidade: --Alvo: (∀u₁, u₂)[((∀a)[a + u₁ = a] ∧ (∀a)[a + u₂ = a
 ii. (∀x)(∃!x')[x' + x = 0 = x + x']
 Seja x : Int. --Dados: x : Int; Alvo: (∃!x')[x + x' = 0 = x' + x]
 Existência: --Alvo: (∃x')[x + x' = 0 ∧ 0 = x' + x]
-  Escolho x = -x'. --Dados: x = -x'; Alvo: -x' + x' = 0 ∧ 0 = x' + (-x')
+  Escolho x' = -x. --Dados: x' = -x; Alvo: x + (-x) = 0 ∧ 0 = (-x) + x
   Split.
-  Parte-L: --Alvo: -x' + x' = 0
-    Imediato.    [(-)-invR-(+)]
-  Parte-R: 0 = x' + (-x')
-    Imediato.    [(-)-invL-(+)]
+  Parte-L: --Alvo: x + (-x) = 0
+    Imediato.    [(-)-invR-(+) x]
+  Parte-R: 0 = -x + x
+    Imediato.    [(-)-invL-(+) x]
 Unicidade: --Alvo: (∀x'₁, x'₂)[(a + x'₁ = 0 ∧ a + x'₂ = 0) ⇒ x'₁ = x'₂]
   Sejam x'₁ e x'₂. --Dados: x'₁, x'₂; Alvo: (a + x'₁ = 0 ∧ a + x'₂ = 0) ⇒ x'₁ = x'₂
   Suponha h: a + x'₁ = 0 ∧ a + x'₂ = 0. --Dados: h; x'₁ = x'₂
@@ -242,8 +242,8 @@ Parte-L:  --Alvo: (-a)b = -(ab)
       = (a + (-a)) · b    [(+)-distR-(·)]
       = 0 · b     [(-)-invR-(+)]
       = 0     [0-annL-(·)]
-  --Dados: ab + (-a)b = 0, ab + (-a)b = ab + (-(ab))
-  Logo ab + (-a)b = ab + (-(ab)).    [(-)-invR-(+)]
+  --Dados: ab + (-a)b = 0
+  Logo ab + (-a)b = ab + (-(ab)).
   Logo (-a)b = -(ab)   [((+)-canL) ab]
   Imediato.
 Parte-R:  --Alvo: -(ab) = a(-b)
@@ -252,8 +252,8 @@ Parte-R:  --Alvo: -(ab) = a(-b)
       = a · (b + (-b))    [(+)-distL-(·)]
       = a · 0     [(-)-invR-(+)]
       = 0     [0-annR-(·)]
-  --Dados: ab + a(-b) = 0, ab + a(-b) = ab + (-(ab))
-  Logo ab + a(-b) = ab + (-(ab))    [(-)-invR-(+)]
+  --Dados: ab + a(-b) = 0
+  Logo ab + a(-b) = ab + (-(ab))
   Logo, -(ab) = a(-b)   [((+)-canL) ab]
   Imediato.
 ∎
@@ -314,7 +314,7 @@ Calculamos:
     = ac + (-b)c    [(+)-distR-(·)]
     = ac + (-(bc))  [x3.11]
     = ac - bc
-Logo, (a - b)c = 0.    -- (a - b)c = 0
+Logo (a - b)c = 0.    -- (a - b)c = 0
 Aplico (NZD) em (a - b)c = 0.    -- a - b = 0 ∨ c = 0
 Separo em casos a partir de a - b = 0 ∨ c = 0.
 Caso L:    -- a - b = 0
@@ -331,7 +331,7 @@ Ext-LR em c ≠ 0 ∧ ca = cb.    -- c ≠ 0, ca = cb
 Logo, ac = bc. [(·)-com c a; (·)-com c b]    -- ac = bc
 Logo, a = b.  [(·)-canR]    -- a = b
 Imediato.
-∎
+∎ ⇒
 
 x3.16.
 i. (∀a)(∃k)[a = ak]
