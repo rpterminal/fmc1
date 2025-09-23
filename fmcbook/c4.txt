@@ -1,0 +1,89 @@
+x4.3.
+O + SSSSO
+  = S(O + SSSO)   [(+).2 n ≔ O m ≔ SSSO]
+  = SS(O + SSO)   [(+).2 n ≔ O m ≔ SSO]
+  = SSS(O + SO)   [(+).2 n ≔ O m ≔ SO]
+  = SSSS(O + O)   [(+).2 n ≔ O m ≔ O]
+  = SSSSO         [(+).1 n ≔ O]
+
+x4.4.
+SSSO + (SSO + SSO)
+  = SSSO + S(SSO + SO)  [(+).2]
+  = SSSO + SS(SSO + O)  [(+).2]
+  = SSSO + SSSSO        [(+).1]
+  = S(SSSO + SSSO)      [(+).2]
+  = SS(SSSO + SSO)      [(+).2]
+  = SSS(SSSO + SO)      [(+).2]
+  = SSSS(SSSO + O)      [(+).2]
+  = SSSSSSSO            [(+).1]
+(SSSO + SSO) + SO
+  = S(SSSO + SO) + SO   [(+).2]
+  = SS(SSSO + O) + SO   [(+).2]
+  = SSSSSO + SO         [(+).1]
+  = S(SSSSSO + O)       [(+).2]
+  = SSSSSSO             [(+).1]
+
+x4.5.
+double :: Nat -> Nat
+double O     = O
+double (S n) = S(S (double n))
+
+x4.6.
+(*) :: Nat -> Nat -> Nat
+n * O     = O
+n * (S m) = (n * m) + n
+
+x4.7.
+SSO * (O + SO)
+  = SSO * S(O + O)  [(+).2]
+  = SSO * SO        [(+).1]
+  = (SSO * O) + SSO [(*).2]
+  = SSO             [(*).1]
+
+x4.8.
+SSO * SSSO
+  = (SSO * SSO) + SSO                [(*).2]
+  = ((SSO * SO) + SSO) + SSO         [(*).2]
+  = (((SSO * O) + SSO) + SSO) + SSO  [(*).2]
+  = ((O + SSO) + SSO) + SSO          [(*).1]
+  = (S(O + SO) + SSO) + SSO          [(+).2]
+  = (SS(O + O) + SSO) + SSO          [(+).2]
+  = (SSO + SSO) + SSO                [(+).1]
+  = S(SSO + SO) + SSO                [(+).2]
+  = SS(SSO + O) + SSO                [(+).2]
+  = SSSSO + SSO                      [(+).1]
+  = S(SSSSO + SO)                    [(+).2]
+  = SS(SSSSO + O)                    [(+).2]
+  = SSSSSSO                          [(+).1]
+
+x.4.9.
+(^) :: Nat -> Nat -> Nat
+m ^ O     = S O
+m ^ (S n) = (m ^ n) * m
+
+x4.10.
+SSO ^ SSSO
+  = (SSO ^ SSO) * SSO
+  = ((SSO ^ SO) * SSO) * SSO
+  = (((SSO ^ O) * SSO) * SSO) * SSO
+  = ((SO * SSO) * SSO) * SSO
+  = ((((SO * SO) + SO) * SSO) * SSO) * SSO
+  = (((((SO * O) + SO) + SO) * SSO) * SSO) * SSO
+  = (((SO + SO) * SSO) * SSO) * SSO
+  = ...
+
+x4.11.
+fib :: Nat -> Nat
+fib O         = O
+fib S O       = S O
+fib (S (S n)) = fib (S n) + fib n
+
+x.4.12.
+i.
+q n = n / three
+r n = n % three
+ii.
+q calcula o quociente de n por três.
+r calcula o resto de n por três.
+
+x4.13.
