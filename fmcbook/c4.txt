@@ -87,3 +87,100 @@ q calcula o quociente de n por três.
 r calcula o resto de n por três.
 
 x4.13.
+Sejam a, m : Nat.
+Como (a + m) + O, logo a + m.   [(+).1]
+Como a + (m + O), logo a + m.   [(+).1]
+
+x4.14.
+(+).2 n ≔ n, m ≔ m + w
+(+).2 n ≔ n + m, m ≔ w
+
+x4.15.
+Não sabemos se Sk + m = S(k + m) por (+).2. É exatamente o que queremos provar.
+
+x4.16.
+(∀n)(∀m)(∀k)[(n · m) · k = n · (m · k)]
+Sejam n, m.
+Indução!
+Base:
+  Calculamos:
+    (n · m) · O
+      = O         [(·).1]
+    n · (m · O)
+      = n · O     [(·).1]
+      = O         [(·).1]
+Passo indutivo:
+  Suponha (n · m) · k = n · (m · k).
+  Calculamos:
+    (n · m) · Sk
+      = ((n · m) · k) + (n · m)   [(·).2]
+      = (n · (m · k)) + (n · m)   [hip.]
+    n · (m · Sk)
+      = n · ((m · k) + m)         [(·).2]
+      = (n · (m · k) + (n · m))   [(·)-distL]
+∎
+
+x4.17.
+(∀n)(∀m)[n · m = m · n]
+Seja n.
+Indução!
+Base:
+  Indução!
+  Base:
+    Trivial.
+  Passo indutivo:
+    Calculamos:
+      Suponha O · n.
+      Calculamos:
+        O · Sn
+          = (O · n) + O   [(·).2]
+          = O + O         [HI]
+          = O             [(+).1]
+  Como n · O, logo n · O = O.   [(·).1]
+  Como O · n, logo O · n = O.   [hip.]
+Passo indutivo:
+  Suponha que n · m = m · n.
+  Calculamos:
+    n · Sm
+      = (n · m) + n       [(·).2]
+      = (m · n) + n       [hip.]
+  Basta demonstrar: Sm · n = (m · n) + n
+    Seja m.
+    Indução!
+    Base:
+      Como Sm · O, logo Sm · O = O.   [(·).1]
+      Calculamos:
+        (m · O) + O
+          = O + O     [(·).1]
+          = O         [(+).1]
+    Passo indutivo:
+      Suponha Sm · k = (m · k) + k.
+      Calculamos:
+        Sm · Sk
+          = (Sm · k) + Sm       [(·).2]
+          = ((m · k) + k) + Sm  [hip.]
+      Como (m · Sk) + Sk, logo (m · Sk) + Sk = ((m · k) + m) + Sk.    [(·).2]
+      Logo ((m · k) + k) + Sm = ((m · k) + m) + Sk.    [assoc e com]
+∎
+
+x4.18.
+(∀x)(∀y)(∀z)[x · (y + z) = (x · y) + (x · z)]
+Sejam x, y.
+Indução!
+Base:
+  Como x · (y + O), logo x · (y + O) = x · y.   [(+).1]
+  Calculamos:
+    (x · y) + (x · O)
+      = (x · y) + O   [(·).2]
+      = x · y         [(+).1]
+Passo indutivo:
+  Suponha x · (y + z) = (x · y) + (x · z).
+  Calculamos:
+    x · (y + Sz)
+      = x · S(y + z)              [(+).2]
+      = (x · (y + z)) + x         [(·).2]
+      = ((x · y) + (x · z)) + x   [HI]
+    (x · y) + (x · Sz)
+      = (x · y) + ((x · z) + x)   [(·).2]
+      ≡ ((x · y) + (x · z)) + x
+∎
