@@ -426,4 +426,97 @@ xX3.20.
 (∀a, b)[(a | b ⇒ (-a | b ∧ a | -b)) ⇒ -a | -b]
 
 xX3.21.
-(∀a, b, c)
+(∀a, b, c)[c ≠ 0 ⇒ a | b ⇐⇒ ca | cb]
+
+x3.22.
+Dizemos que o subconjunto S é fechado sob a operação binária ♡ se, e somente se, para quaisquer dois elementos de S, o resultado da aplicação da operação ♡ a eles for também um elemento de S.
+
+x3.23.
+Pois, ao somar qualquer inteiro ímpar por outro ímpar, saímos do conjunto.
+Pois, ao somar qualquer inteiro por seu inverso aditivo, saímos do conjunto.
+Pois é possível encontrar dois números que não terminam em '1' cuja soma termina em '1'.
+
+x3.24.
+Verdade. Em ambos os casos, não temos como "escapar" de seus universos.
+
+x3.25.
+Dizemos que o subconjunto S é fechado sob a operação n-ária ♡ se, e somente se, para quaisquer n elementos tomados de S, o resultado da aplicação de ♡ a esses elementos for também um elemento de S.
+
+xX3.26.
+
+X3.27.
+Seja a ∈ mℤ.
+Como a = mx, logo -a = -(mx).
+Logo -a = m(-x).
+Logo, -a ∈ mℤ.
+
+x3.28.
+A = x ∈ ℤ | x ≥ 0 ∧ (∃k ∈ ℤ)[x = 2k]
+B = 2 ^ n | n ≥ 0 ∧ n ∈ ℤ -> fechado sob (·)
+C = 3k | k ∈ ℤ -> fechado sob os quatro
+D = 3k + 1 | k ∈ ℤ -> fechado sob (·)
+I. fechado sob (-)-neg e (·)
+U. fechado sob os quatro
+W. fechado sob (·)
+T. fechado sob (·)
+
+xX3.29.
+
+xX3.30.
+x neg ⇒ x < 0
+  Suponha x neg.
+  Logo Pos(-x).    [D3.40]
+  Como -x, logo -x = 0 - x.
+x neg ⇐ x < 0
+  Suponha x < 0.
+  Logo Pos(0 - x).    [D3.41]
+  Como 0 - x, logo -x = 0 - x.
+
+x3.31.
+[x3.10]
+[(+)-distL-(·)]
+[x3.10]
+[((+)-com) -a -c]
+[((+)-ass) (b + c) -c -a]
+[((+)-ass) b c -c]
+[((+)-invR) c]
+[0-idR-(+)]
+
+x3.32.
+O caminho é desnecessariamente complicado. Poderíamos apenas demonstrar -(a + c) = (-a) + (-c) para utilizar posteriormente.
+
+x3.33.
+(b - a)c
+  ≡ (b + (-a))c
+  = bc + (-a)c    [(+)-distR-(·)]
+  = bc + (-(ac))  [x3.11]
+  ≡ bc - ac
+
+xX3.34.
+(∀a, b)[e.u.d.: a < b; a = b; a > b]
+Sejam a, b : Int.
+Separo em casos a partir de ZP-Tri.
+Caso 1:
+  Suponha Pos(b - a).
+
+xX3.35.
+(∀a)[a ≮ a]
+Seja a.
+Suponha a < a.
+Logo, Pos (a - a).
+Logo, Pos 0.
+Contradição.
+∎
+(∀a, b)[a < b ⇒ b ≮ a]
+Sejam a, b.
+Suponha a < b.
+Suponha b < a.
+Como a < b, logo Pos (b - a).
+Como b < a, logo Pos (a - b).
+Logo Pos (-(b - a)).    [x3.13]
+Contradição.
+∎
+(∀a, b)[a ≠ b ⇒ a < b ∨ b < a]
+Sejam a, b.
+Suponha a ≠ b.
+-- preciso da tricotomia
