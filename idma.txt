@@ -33,3 +33,15 @@ Calculamos:
     = x · 0   [(·)-com]
     = 0   [0-annR-(·)]
 ∎
+
+e.u.d.: ≡ᷤ (P ∧ ¬Q ∧ ¬R) ∨ (Q ∧ ¬P ∧ ¬R) ∨ (R ∧ ¬P ∧ ¬Q)
+
+Θ. (∀a ≠ 0)[a² positivo]
+Seja a ≠ 0.
+Sep casos [(tri) a].
+Caso a pos.
+  Logo a · a pos.    [(Pos-(·)-Cl) a a]
+Caso a = 0.
+  Impossível.
+Caso -a pos.
+  Logo (-a) · (-a) pos.    [(Pos-(·)-Cl) -a -a]

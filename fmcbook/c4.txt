@@ -101,7 +101,7 @@ Não sabemos se Sk + m = S(k + m) por (+).2. É exatamente o que queremos provar
 x4.16.
 (∀n)(∀m)(∀k)[(n · m) · k = n · (m · k)]
 Sejam n, m.
-Indução!
+Por indução.
 Base:
   Calculamos:
     (n · m) · O
@@ -110,11 +110,11 @@ Base:
       = n · O     [(·).1]
       = O         [(·).1]
 Passo indutivo:
-  Suponha (n · m) · k = n · (m · k).
+  Seja k t.q. (n · m) · k = n · (m · k).
   Calculamos:
     (n · m) · Sk
       = ((n · m) · k) + (n · m)   [(·).2]
-      = (n · (m · k)) + (n · m)   [hip.]
+      = (n · (m · k)) + (n · m)   [HI]
     n · (m · Sk)
       = n · ((m · k) + m)         [(·).2]
       = (n · (m · k) + (n · m))   [(·)-distL]
@@ -160,7 +160,7 @@ Passo indutivo:
           = (Sm · k) + Sm       [(·).2]
           = ((m · k) + k) + Sm  [hip.]
       Como (m · Sk) + Sk, logo (m · Sk) + Sk = ((m · k) + m) + Sk.    [(·).2]
-      Logo ((m · k) + k) + Sm = ((m · k) + m) + Sk.    [assoc e com]
+      Logo ((m · k) + k) + Sm = ((m · k) + m) + Sk.    [assoc, com]
 ∎
 
 x4.18.
@@ -184,3 +184,204 @@ Passo indutivo:
       = (x · y) + ((x · z) + x)   [(·).2]
       ≡ ((x · y) + (x · z)) + x
 ∎
+
+x4.19.
+(∀x)(∀a)(∀b)[x ^ (a + b) = (x ^ a) · (x ^ b)]
+Sejam x, a.
+Por indução.
+Base:
+  Calculamos:
+    x ^ (a + 0)
+      = x ^ a         [(+).1 n ≔ a]
+    (x ^ a) · (x ^ 0)
+      = (x ^ a) · 1   [(^).1 n ≔ x]
+      = x ^ a         [(1-idR-(·)) (x ^ a)]
+Passo indutivo:
+  Seja k t.q. x ^ (a + k) = (x ^ a) · (x ^ k).
+  Calculamos:
+    x ^ (a + Sk)
+      = x ^ S(a + k)              [(+).2 n ≔ x, m ≔ a + k]
+      = (x ^ (a + k)) · x         [(^).2 n ≔ x, m ≔ a + k]
+      = ((x ^ a) · (x ^ k)) · x   [H.I.]
+      = (x ^ a) · ((x ^ k) · x)   [((·)-ass) (x ^ a) (x ^ k) x]
+      = (x ^ a) · (x ^ Sk)        [← (^).2 n ≔ x, m ≔ k]
+∎
+
+x4.20.
+(∀a)(∀b)(∀c)[a ^ (b · c) = (a ^ b) ^ c]
+Sejam a, b.
+Por indução.
+Base:
+  Calculamos:
+    a ^ (b · 0)
+      = a ^ 0    [(·).1]
+      = 1        [(^).1]
+    (a ^ b) ^ 0
+      = 1        [(^).1]
+Passo indutivo:
+  Seja c t.q. a ^ (b · c) = (a ^ b) ^ c.
+  Calculamos:
+    a ^ (b · Sc)
+      = a ^ ((b · c) + b)          [(·).2]
+      = (a ^ (b · c)) · (a ^ b)    [x4.19]
+      = ((a ^ b) ^ c) · (a ^ b)    [HI]
+    (a ^ b) ^ Sc
+      = ((a ^ b) ^ c) · (a ^ b)    [(^).2]
+∎
+
+x4.21.
+(∀n)[SO ^ n = SO]
+Por indução.
+Base:
+  Como SO ^ 0, logo SO ^ 0 = SO.    [(^).1]
+Passo indutivo:
+  Seja n tal que SO ^ n = SO.
+  Calculamos:
+    SO ^ Sn
+      = (SO ^ n) · SO    [(^).2]
+      = SO · SO          [HI]
+      = SO               [1-idR-(·)]
+∎
+
+xX4.22.
+(∀x ímpar)(∀n)[x ^ n ímpar]
+Seja x tal que x ímpar.
+Seja w tal que x = S(w + w)
+Por indução.
+Base:
+  Como x ^ 0, logo x ^ 0 = 1.         [(^).1]
+  Como 1 = S(0 + 0), logo 1 é ímpar.  [?]
+Passo indutivo:
+  Seja n tal que x ^ n ímpar.
+  Seja m tal que x ^ n = S(m + m).
+  Calculamos:
+    x ^ Sn
+      = (x ^ n) · x                       [(^).2]
+      = S(m + m) · x                      [HI]
+      = S(m + m) · S(w + w)               [hip.]
+      = (S(m + m) · (w + w)) + S(m + m)   [(·).2]
+      = S((S(m + m) · (w + w)) + (m + m)) [(+).2]
+
+x4.23.
+(∀x)[O ≦ x]
+Seja x.
+Escolho k = x.
+Logo, x = x.    [0-idL-(+)]
+∎
+
+x4.24.
+(∀n, m)[n ≦ Sm ⇐⇒ n ≦ m ∨ n = Sm]
+Sejam n, m.
+⇒:
+Suponha n ≦ Sm.
+Logo seja u tal que n + u = Sm.
+Separo em casos.
+Caso u = 0:
+  Como Sm = n + 0, logo Sm = n.    [(+).1]
+Caso u = u':
+  Como Sm = (n + Su'), logo Sm = S(n + u').    [(+).2]
+  Logo m = n + u'.    [succ-inj ?]
+⇐:
+Suponha n ≦ m ∨ n = Sm (h).
+Separo em casos a partir de h.
+Caso n ≦ m:
+  Seja k tal que n + k = m.
+  Logo Sm = S(n + k).
+  Logo S(n + k) = n + Sk.    [← (+).2]
+  Escolho k' tal que k' = Sk.
+  Logo, n + k' = Sm.
+Caso n = Sm:
+  Seja k tal que k = 0.
+  Como n + 0 = Sm, logo n = Sm    [(+).1]
+∎
+
+x4.25.
+(∀x)[x ≦ x]
+Seja x.
+Escolho k = 0.
+Logo x = x.    [0-idL-(+)]
+∎
+
+x4.26.
+(∀x, y, z)[x ≦ y ∧ y ≦ z ⇒ x ≦ z]
+Sejam x, y, z.
+Suponha x ≦ y ∧ y ≦ z (h).
+Extraio a esquerda de h.
+Seja k₁ tal que x + k₁ = y.
+Extraio a direita de h.
+Seja k₂ tal que y + k₂ = z.
+Logo, (x + k₁) + k₂ = z.    [hip]
+Logo, x + (k₁ + k₂) = z.    [(+)-assoc]
+Escolho k₃ = k₁ + k₂.
+Como x + k₃ = z, logo x ≦ z.
+∎
+
+x4.27.
+(∀x, y)[x ≦ y ∧ y ≦ x ⇒ x = y]
+Sejam x, y.
+Suponha x ≦ y ∧ y ≦ x.
+Extraio à esquerda.
+Seja k₁ tal que x + k₁ = y.
+Extraio à direita.
+Seja k₂ tal que y + k₂ = x.
+Calculamos:
+  x = y + k₂           [hip]
+    = (x + k₁) + k₂    [hip]
+    = x + (k₁ + k₂)    [(+)-assoc]
+  x = x + 0            [← 0-idR-(+)]
+Logo k₁ + k₂ = 0.      [(+)-canR]
+Logo k₁ = 0.           [Nat-(+)-Cl]
+Como x + 0 = y, logo x = y. [0-idR-(+)]
+∎
+
+xX4.28.
+(∀x, y)[x ≦ y ∨ y ≦ x]
+Indução.
+Base:
+  Seja y.
+  Escolho o lado esquerdo.
+  Trivial.    [x4.23.]
+Passo indutivo:
+  Seja x, y tal que x ≦ y ∨ y ≦ x.
+  Separamos em casos.
+  Caso x ≦ y:
+    
+  Caso y ≦ x:
+
+
+xX4.29.
+i. (∀n)[n | n]
+Seja n.
+Escolho k = 1.
+Logo, n = n.    [1-idL-(·)]
+∎
+ii. (∀n, m, u)[n | m ∧ m | u ⇒ n | u]
+Sejam n, m, u tal que n | m ∧ m | u.
+Seja k₁ tal que n · k₁ = m.
+Seja k₂ tal que m · k₂ = u.
+Logo u = (n · k₁) · k₂.
+Logo u = n · (k₁ · k₂).
+Escolho k₃ = k₁ · k₂.
+Imediato.
+∎
+iii. (∀n,m)[n | m ∧ m | n ⇒ n = m]
+Sejam n, m tal que n | m ∧ m | n.
+Seja k₁ tal que n · k₁ = m.
+Seja k₂ tal que m · k₂ = n.
+Logo n = (n · k₁) · k₂.
+Logo n = n · (k₁ · k₂).
+Separamos em casos a partir de n.
+Caso n = 0:
+  Como 0 · k₁ = m, logo m = 0.
+Caso n = Sn':
+  Logo n · 1 = n · (k₁ · k₂).    [← 1-idL-(·)]
+  Logo 1 = k₁ · k₂.              [(·)-can*R]
+  Logo m = n · 1.                [hip.]
+  Logo m = n.                    [1-idL-(·)]
+iv. Contraexemplo de (∀n, m)[n | m ∨ m | n]
+2 | 3? Não, 2 · k = 3 não tem solução em Nat.
+3 | 2? Não, 3 · k = 2 não tem solução em Nat.
+
+x4.30.
+Nat-(|)-bot = 1, pois (∀x)[1 | x], tomando k = x.
+Nat-(|)-top = 0, pois (∀x)[x | 0], tomando k = 0.
