@@ -385,3 +385,5 @@ iv. Contraexemplo de (∀n, m)[n | m ∨ m | n]
 x4.30.
 Nat-(|)-bot = 1, pois (∀x)[1 | x], tomando k = x.
 Nat-(|)-top = 0, pois (∀x)[x | 0], tomando k = 0.
+
+x4.31.
