@@ -520,3 +520,63 @@ Contradição.
 Sejam a, b.
 Suponha a ≠ b.
 -- preciso da tricotomia
+
+xX3.36.
+i. (∀a)[a ≦ a]
+Seja a.
+Escolho k = 0.
+Logo a = a.    [0-idL-(+)]
+∎
+ii. (∀a, b)[a ≦ b ∧ b ≦ a ⇒ a = b]
+Sejam a, b.
+Suponha a ≦ b ∧ b ≦ a.
+Extraio à esquerda.
+Seja k₁ tal que a + k₁ = b.
+Extraio à direita.
+Seja k₂ tal que b + k₂ = a.
+Calculamos:
+  a = b + k₂           [hip]
+    = (a + k₁) + k₂    [hip]
+    = a + (k₁ + k₂)    [(+)-assoc]
+  a = a + 0            [← 0-idR-(+)]
+Logo k₁ + k₂ = 0.      [(+)-canR]
+iii. (∀a, b, c)[a ≦ b ∧ b ≦ c ⇒ a ≦ c]
+Sejam a, b, c.
+Suponha a ≦ b ∧ b ≦ c (h).
+Extraio a esquerda de h.
+Seja k₁ tal que a + k₁ = b.
+Extraio a direita de h.
+Seja k₂ tal que b + k₂ = c.
+Logo, (a + k₁) + k₂ = c.    [hip]
+Logo, a + (k₁ + k₂) = c.    [(+)-assoc]
+Escolho k₃ = k₁ + k₂.
+Como a + k₃ = c, logo a ≦ c.
+∎
+
+x3.37. (∀c, a, b)[c > 0 ⇒ ac < bc ⇒ a < b]
+Seja c > 0.
+Como Pos (c - 0), logo Pos c.
+Sejam a, b tal que ac < bc.
+Logo Pos (bc - ac).
+Como bc - ac, logo (b - a)c.
+Logo Pos (b - a) e Pos c.   [Pos-(·)-Cl]
+Como Pos (b - a), a < b.
+Imediato.
+∎
+
+x3.38.
+(∀a, b, u, v)[a < b ∧ u < v ⇒ a + u < b + v]
+Sejam a, b, u, v tal que a < b ∧ u < v.
+Logo, Pos (b - a) e Pos (v - u).
+Calculamos:
+  (b + v) - (a + u)
+    = b + v - a + u
+    = (b - a) + (v - u)    [(+)-assoc, (+)-com]
+Logo Pos ((b + v) - (a + u)).    [Pos-(+)-Cl]
+∎
+
+x3.39.
+(∀a, b, u, v)[a < b ∧ u < v ⇒ au < bv]
+Contraexemplo: tomando u = 0, temos 0 < 0.
+
+x3.40.
