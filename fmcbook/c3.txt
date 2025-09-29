@@ -579,4 +579,36 @@ x3.39.
 (∀a, b, u, v)[a < b ∧ u < v ⇒ au < bv]
 Contraexemplo: tomando u = 0, temos 0 < 0.
 
-x3.40.
+xX3.40.
+
+x3.41.
+(op)-assoc: válida para ambas.
+(op)-com: válida para ambas.
+(op)-id: não existe para ambas.
+Logo, (op)-inv não é válida.
+(op)-dist: válida para ambas.
+
+xX3.42.
+Sejam A : Set Int, m₁, m₂ : Int.
+Suponha h: m₁ é mínimo de A ∧ m₂ é mínimo de A.
+Ext-LR em h para obter h₁ e h₂.
+Logo, m₁ ≦ m₂.
+Logo, m₂ ≦ m₁.
+Logo, m₁ = m₂.
+
+x3.43.
+min A = min B <≡> (∃m)[(m ∈ A ∧ (∀x ∈ A)[m ≤ x]) ∧ (m ∈ B ∧ (∀y ∈ B)[m ≤ y])]
+max A < max B <≡> (∃M, m)[(M ∈ A ∧ (∀x ∈ A)[x ≤ M]) ∧ (m ∈ B ∧ (∀y ∈ B)[m ≤ y]) ∧ (M < m)]
+
+X3.44.
+max A <≡> (∃m ∈ A)(∀x ∈ A)[x <= m]
+Sejam A : Set Int, m₁, m₂ : Int.
+Suponha h: m₁ é máximo de A ∧ m₂ é máximo de A.
+Ext-LR em h para obter h₁ e h₂.
+Logo, m₁ ≦ m₂.
+Logo, m₂ ≦ m₁.
+Logo, m₁ = m₂.
+
+xX3.45.
+
+x3.46.
