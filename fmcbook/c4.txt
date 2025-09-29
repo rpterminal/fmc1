@@ -123,9 +123,9 @@ Passo indutivo:
 x4.17.
 (∀n)(∀m)[n · m = m · n]
 Seja n.
-Indução!
+Por indução.
 Base:
-  Indução!
+  Por indução.
   Base:
     Trivial.
   Passo indutivo:
@@ -146,7 +146,7 @@ Passo indutivo:
       = (m · n) + n       [hip.]
   Basta demonstrar: Sm · n = (m · n) + n
     Seja m.
-    Indução!
+    Por indução.
     Base:
       Como Sm · O, logo Sm · O = O.   [(·).1]
       Calculamos:
@@ -166,7 +166,7 @@ Passo indutivo:
 x4.18.
 (∀x)(∀y)(∀z)[x · (y + z) = (x · y) + (x · z)]
 Sejam x, y.
-Indução!
+Por indução.
 Base:
   Como x · (y + O), logo x · (y + O) = x · y.   [(+).1]
   Calculamos:
