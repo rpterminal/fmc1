@@ -600,7 +600,7 @@ x3.43.
 min A = min B <≡> (∃m)[(m ∈ A ∧ (∀x ∈ A)[m ≤ x]) ∧ (m ∈ B ∧ (∀y ∈ B)[m ≤ y])]
 max A < max B <≡> (∃M, m)[(M ∈ A ∧ (∀x ∈ A)[x ≤ M]) ∧ (m ∈ B ∧ (∀y ∈ B)[m ≤ y]) ∧ (M < m)]
 
-X3.44.
+xX3.44.
 max A <≡> (∃m ∈ A)(∀x ∈ A)[x <= m]
 Sejam A : Set Int, m₁, m₂ : Int.
 Suponha h: m₁ é máximo de A ∧ m₂ é máximo de A.
@@ -612,3 +612,60 @@ Logo, m₁ = m₂.
 xX3.45.
 
 x3.46.
+(∀x)[|x| ≥ 0]
+Seja x.
+Separo em casos a partir de ZP-Tri em x.
+Caso x > 0:
+  Logo |x| = x.
+  Imediato.
+Caso x = 0:
+  Logo |x| = 0.
+  Imediato.
+Caso x < 0:
+  Logo |x| = -x.
+  Como -x > 0, logo -x ≥ 0.
+  Imediato.
+∎
+
+x3.47.
+(∀x)[|x| = 0 ⇐⇒ x = 0]
+Seja x.
+⇒:
+Suponha |x| = 0.
+Separo em casos a partir de D3.57 em x.
+Caso x ≥ 0:
+  Logo |x| = x.
+  Logo x = 0.
+  Imediato.
+Caso x < 0:
+  Logo |x| = -x.
+  Logo -x = 0.
+  Logo x = 0.
+  Contradição.
+∎
+⇐:
+Suponha x = 0.
+Calculamos:
+  |x|
+    = |0|
+    = 0
+Imediato.
+∎
+
+x3.48.
+(∀x)[||x|| = |x|]
+Seja x.
+Calculamos:
+  ||x||
+    = |x|   [x3.46]
+∎
+
+x3.49.
+(∀x)[|-x| = |x|]
+Seja x.
+Separo em casos a partir de ZP-Tri em x.
+Caso x > 0:
+
+Caso x = 0:
+
+Caso x < 0:
