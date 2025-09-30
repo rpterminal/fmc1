@@ -421,3 +421,152 @@ T h (m, S n)  = (T h (m, n)) * h(m + n)
 
 Π4.4.
 ...
+
+x4.31.
+even :: Nat -> Nat
+even O     = S O
+even (S n) = odd n
+odd :: Nat -> Nat
+odd O      = O
+odd (S n)  = even n
+
+x4.32.
+type Int = (Nat, Nat)
+
+x4.33.
+even :: Nat -> Bool
+even O     = True
+even (S n) = odd n
+odd :: Nat -> Bool
+odd n = not (even n)
+
+xX4.34.
+
+x4.35.
+eq :: Nat -> Nat -> Bool
+eq 0 0         = True
+eq (S n) 0     = False
+eq 0 (S n)     = False
+eq (S n) (S m) = eq n m
+
+x4.36.
+Unit -> β: representa a escolha de um único elemento de β.
+α -> Unit: representa uma única escolha de função, a que descarta tudo.
+
+x4.37.
+Empty -> β: existe apenas uma função, a função vazia.
+α -> Empty: não existe nenhuma função.
+
+x4.38.
+sum :: Num a => [a] -> a
+sum []       = 0
+sum (x : xs) = x + sum xs
+product :: Num a => [a] -> a
+product []       = 1
+product (x : xs) = x * product xs
+
+x4.39.
+addNat :: Nat -> [Nat] -> [Nat]
+addNat n xs = map (n <+>) xs
+mulNat :: Nat -> [Nat] -> [Nat]
+mulNat n xs = map (n <*>) xs
+expNat :: Nat -> [Nat] -> [Nat]
+expNat n xs = map (<^> n) xs
+powNat :: Nat -> [Nat] -> [Nat]
+powNat n xs = expNat n xs
+
+x4.40.
+pwAdd :: [Nat] -> [Nat] -> [Nat]
+pwAdd xs ys = zipWith (<+>) xs ys
+pwMul :: [Nat] -> [Nat] -> [Nat]
+pwMul xs ys = zipWith (<*>) xs ys
+pwExp :: [Nat] -> [Nat] -> [Nat]
+pwExp xs ys = zipWith (<^>) xs ys
+
+x4.41.
+stretch :: Nat -> [Nat] -> [Nat]
+stretch _ []       = []
+stretch n (x : xs) = replicate (fromNat n) x ++ stretch n xs
+countdown :: Nat -> [Nat]
+countdown O     = [O]
+countdown (S n) = (S n) : countdown n
+
+ΠX4.7.
+type ListNat = Nat
+
+ΠX4.8.
+type PairNat = Nat
+
+x4.42.
+filter :: (a -> Bool) -> [a] -> [a]
+filter _ [] = []
+filter p (x : xs) =
+  let filtered = filter p xs
+  in if p x
+     then x : filtered
+     else filtered
+
+x4.43.
+(∀f : α → β)(∀x : Nat)(∀p : β → Bool)(∀l₁, l₂ : ListNat)[map f (if p x then l₁ else l₂) = if p x then map f l₁ else map f l₂]
+Seja f : α → β.
+Seja x : Nat.
+Seja p : β → Bool.
+Sejam l₁, l₂ : ListNat.
+Separamos em casos.
+Caso p x = True:
+  Calculamos:
+    map f (if p x then l₁ else l₂)
+      = map f (if True then l₁ else l₂) [hip]
+      = map f l₁
+    if p x then map f l₁ else map f l₂
+      = if True then map f l₁ else map f l₂ [hip]
+      = map f l₁
+Caso p x = False:
+  Calculamos:
+    map f (if p x then l₁ else l₂)
+    = map f (if False then l₁ else l₂)  [hip]
+    = map f l₂
+    if p x then map f l₁ else map f l₂
+    = if False then map f l₁ else map f l₂  [hip]
+    = map f l₂
+∎
+
+Π4.9.
+data IList a where 
+  One  :: a -> IList a
+  Cons :: a -> IList a -> IList a
+head :: IList a -> a
+head (One x)     = x
+head (Cons x xs) = x
+tail :: IList a -> IList a
+tail (One x)     = undefined
+tail (Cons x xs) = xs
+toList :: IList a -> [a]
+toList (One x)     = [x]
+toList (Cons x xs) = x : toList xs
+
+Π4.10.
+data OList a where
+OCons :: a -> EList a -> OList a
+data EList a where
+  ENil  :: EList a
+  ECons :: a -> OList a -> EList a
+headO :: OList a -> a
+headO (OCons x _) = x
+headE :: EList a -> a
+headE ENil        = undefined
+headE (ECons x _) = x
+tailO :: OList a -> EList a
+tailO (OCons _ xs) = xs
+tailE :: EList a -> OList a
+tailE ENil         = undefined
+tailE (ECons _ xs) = xs
+oToList :: OList a -> [a]
+oToList (OCons x xs) = x : eToList xs
+eToList :: EList a -> [a]
+eToList ENil         = []
+eToList (ECons x xs) = x : oToList xs
+
+ΠX4.11.
+
+ΠX4.12.
