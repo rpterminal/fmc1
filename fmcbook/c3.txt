@@ -752,3 +752,27 @@ ii. x3.13
 iii. x3.50
 
 x3.53.
+(∀a, b)[|a| = |b| ⇒ a = b ∨ a = -b]
+Sejam a, b : Int.
+Suponha |a| = |b|.
+
+x3.54.
+(∀a, b)[||a| - |b|| ≤ |a - b| ≤ |a| + |b|]
+Sejam a, b.
+Split.
+Parte |a - b| ≤ |a| + |b|:
+
+Parte ||a| - |b|| ≤ |a - b|:
+
+x3.55.
+(∀a, b)[|ab| = |a||b|]
+
+Π3.1.
+Já demonstrado.
+
+Π3.2.
+Pos x ≝ 0 < x
+Neg x ≝ x < 0
+x > y ≝ y < x
+x ≤ y ≝ x < y ∨ x = y
+x ≥ y ≝ y ≤ x
