@@ -665,7 +665,90 @@ x3.49.
 Seja x.
 Separo em casos a partir de ZP-Tri em x.
 Caso x > 0:
-
+  Logo |-x| = x.
+  Logo |x| = x.
+  Imediato.
 Caso x = 0:
-
+  Logo |-0| = 0.
+  Logo |0| = 0.
+  Imediato.
 Caso x < 0:
+  Logo |-x| = -x.
+  Logo |x| = -x.
+  Imediato.
+∎
+
+x3.50.
+(∀a, u)[|a| ≤ |u| ⇐⇒ -|u| ≤ a ≤ |u|]
+Sejam a, u.
+⇒:
+Suponha |a| ≤ |u|.
+Split.
+Parte a ≤ |u|:
+  Separo em casos a partir de a.
+  Caso a ≥ 0:
+    Logo |a| = a.
+    Logo a ≤ |u|.
+    Imediato.
+  Caso a < 0:
+    Logo a ≤ |u|.   [x3.46]
+    Imediato.
+Parte -|u| ≤ a:
+  Separo em casos a partir de a.
+  Caso a ≥ 0:
+    Logo -|u| ≤ 0.
+    Logo -|u| ≤ a.
+    Imediato.
+  Caso a < 0:
+    Logo |a| = -a.
+    Como -a ≤ |u|, logo -|u| ≤ -(-a).   [(·) -1]
+    Como -(-x) = x, logo -|u| ≤ a.
+    Imediato.
+∎
+⇐:
+Suponha -|u| ≤ a ≤ |u|.
+Ext-LR para obter a ≤ |u| e -|u| ≤ a.
+Separo em casos a partir de a.
+Caso a ≥ 0:
+  Logo a ≤ |u|.
+  Imediato.
+Caso a < 0:
+  Como |a| = -a, logo -a ≤ |u|.
+  Como -|u| ≤ a, logo -a ≤ -(-|u|).    [(·) -1]
+  Como -(-x) = x, logo -a ≤ |u|.
+  Imediato.
+∎
+
+x3.51.
+(∀a)[-|a| ≤ a ≤ |a|]
+Seja a.
+Split.
+Parte a ≤ |a|:
+  Separo em casos a partir de a.
+  Caso a ≥ 0:
+    Logo |a| = a.
+    Logo a ≤ a.
+    Imediato.
+  Caso a < 0:
+    Logo |a| = -a.
+    Logo Pos -a.
+    Logo a ≤ -a.
+    Imediato.
+Parte -|a| ≤ a:
+  Separo em casos a partir de a.
+  Caso a ≥ 0:
+    Logo |a| = a.
+    Logo -a ≤ a.
+    Imediato.
+  Caso a < 0:
+    Logo |a| = -a.
+    Como -(-a) = a, logo a ≤ a.
+    Imediato.
+∎
+
+x3.52.
+i. Soma de desigualdades.
+ii. x3.13
+iii. x3.50
+
+x3.53.
