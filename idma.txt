@@ -45,3 +45,26 @@ Caso a = 0.
   Impossível.
 Caso -a pos.
   Logo (-a) · (-a) pos.    [(Pos-(·)-Cl) -a -a]
+
+Θ. (∀A)(∀u, v)[u, v min de A ⇒ u = v]
+Seja A : Set Int.
+Sejam u, v : Int.
+Suponha h: u, v min de A.
+Ext-LR em h para obter h₁ e h₂.
+Logo u ≤ v.
+Logo v ≤ u.
+Logo u = v.    [(≤)-antisym]
+Imediato.
+∎
+
+Θ. (≤)-antisym ⇐⇒ (∀a, b)[a ≤ b ∧ b ≤ a ⇒ a = b]
+Sejam a, b.
+Suponha h: a ≤ b ∧ b ≤ a.
+Ext-LR em h para obter h₁ e h₂.
+Suponha, por contradição, que a ≠ b.
+Separo em casos a partir de ZO-Tri.
+Caso a < b:
+  Contradição em a < b e b ≤ a.
+Caso b < a:
+  Contradição em b < a e a ≤ b.
+∎
