@@ -78,7 +78,7 @@ fib O         = O
 fib S O       = S O
 fib (S (S n)) = fib (S n) + fib n
 
-x.4.12.
+x4.12.
 i.
 q n = n / three
 r n = n % three
@@ -449,13 +449,14 @@ eq (S n) 0     = False
 eq 0 (S n)     = False
 eq (S n) (S m) = eq n m
 
-x4.36.
-Unit -> β: representa a escolha de um único elemento de β.
-α -> Unit: representa uma única escolha de função, a que descarta tudo.
+xX4.36. -- por que?
+Unit → β: representa a escolha de um único elemento de β.
+α → Unit: representa uma única escolha de função, a que descarta tudo.
 
-x4.37.
-Empty -> β: existe apenas uma função, a função vazia.
-α -> Empty: não existe nenhuma função.
+xX4.37. -- por que?
+Empty → β: existe apenas uma função, a função vazia.
+α → Empty: não existe nenhuma função.
+Empty → Empty: ...
 
 x4.38.
 sum :: Num a => [a] -> a
