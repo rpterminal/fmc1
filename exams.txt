@@ -209,6 +209,7 @@ L3.
 length (xs ++ ys) = length xs + length ys
 Por indução.
 Base:
+  Seja ys : List α.
   Calculamos:
     length ([] ++ ys)
       = length ys      [(++).1]
@@ -216,6 +217,7 @@ Base:
       = 0 + length ys  [(length).1]
       = length ys      [(+).1]
 Passo indutivo:
+  Sejam xs, ys : List α.
   Suponha que length (xs ++ ys) = length xs + length ys.
   Calculamos:
     length ((x : xs) ++ ys)
@@ -259,15 +261,16 @@ sum (map (* k) ns) = sum ns * k
 product (map (* k) ns) = product ns * (k ^ length ns)
 P.
 map f (xs ++ ys) = (map f xs) ++ (map f ys)
+Sejam xs, ys : List α.
 Por indução em xs.
-Base:
+Caso xs = []:
   Calculamos:
     map f ([] ++ ys)
       = map f ys    [(++).1]
     (map f []) ++ (map f ys)
       = [] ++ (map f ys)    [(map).1]
       = map f ys            [(++).1]
-Passo indutivo:
+Caso xs = (x : xs):
   Suponha que map f (xs ++ ys) = (map f xs) ++ (map f ys).
   Calculamos:
     map f ((x : xs) ++ ys)
@@ -279,7 +282,7 @@ Passo indutivo:
       = f x : (map f xs) ++ (map f ys)  [(++).2]
 ∎
 length (map f xs) = length xs
-Por indução em xs.
+Por indução.
 Base:
   Calculamos:
     length (map f [])
