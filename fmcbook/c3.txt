@@ -751,12 +751,12 @@ i. Soma de desigualdades.
 ii. x3.13
 iii. x3.50
 
-x3.53.
+xX3.53.
 (∀a, b)[|a| = |b| ⇒ a = b ∨ a = -b]
 Sejam a, b : Int.
 Suponha |a| = |b|.
 
-x3.54.
+xX3.54.
 (∀a, b)[||a| - |b|| ≤ |a - b| ≤ |a| + |b|]
 Sejam a, b.
 Split.
@@ -764,7 +764,7 @@ Parte |a - b| ≤ |a| + |b|:
 
 Parte ||a| - |b|| ≤ |a - b|:
 
-x3.55.
+xX3.55.
 (∀a, b)[|ab| = |a||b|]
 
 Π3.1.
