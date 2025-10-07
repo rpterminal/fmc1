@@ -7,3 +7,11 @@ Calculamos:
     = Sm          [(+).1 n ≔ m]
 Imediato.
 ∎
+
+foldr :: (a -> b -> b) -> b -> [a] -> b
+foldr f u [] = u
+foldr f u (x : xs) = f x (foldr f u xs)
+
+foldl :: (b -> a -> b) -> b -> [a] -> b
+foldl f u [] = u
+foldl f u (x : xs) = foldl f (f u x) xs
