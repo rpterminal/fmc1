@@ -156,3 +156,144 @@ Caso-R:
   Como b ≠ 0, logo a = 0.    [(·)-canR]
   Imediato.
 ∎⛦
+
+2023.2 IRI.1
+D.
+compare : Nat → Nat → Nat
+compare O O = O
+compare O (S n) = 1
+compare (S n) O = 2
+compare (S n) (S m) = compare n m
+E.
+(∀a, b, u)[compare a b = compare (a + u) (b + u)]
+Sejam a, b : Int.
+Por indução.
+Base:
+  Calculamos:
+    compare (a + 0) (b + 0)
+      = compare a (b + 0)   [(+).1]
+      = compare a b         [(+).1]
+Passo indutivo:
+  Seja k tal que compare a b = compare (a + k) (b + k).
+  Calculamos:
+    compare (a + Sk) (b + Sk)
+      = compare S(a + k) S(b + k)   [(+).2]
+      = compare (a + k) (b + k)     [(compare).4]
+      = compare a b                 [H.I.]
+∎
+
+2023.2 IRI.3
+L.L1.
+length (xs ++ ys) = length xs + length ys
+map f ○ map g = map (f ○ g)
+map f (xs ++ ys) = map f xs ++ map f ys
+map id = id
+filter p ○ map f = map f ○ filter (p ○ f)
+product ○ map (n ^) = (n ^) ○ sum
+L2.
+length : (Integral i) ⇒ List α → i
+length [] = 0
+length (x : xs) = 1 + length xs
+map : (α → β) → List α → List β
+map f [] = []
+map f (x : xs) = f x : (map f xs)
+filter : (α → Bool) → List α → List α
+filter _ [] = []
+filter p (x : xs)
+  | p x = x : filter p xs
+  | otherwise = filter p xs
+foldr : (a → b → b) → b → [a] → b
+foldr f u [] = u
+foldr f u (x : xs) = f x (foldr f u xs)
+L3.
+length (xs ++ ys) = length xs + length ys
+Por indução.
+Base:
+  Calculamos:
+    length ([] ++ ys)
+      = length ys      [(++).1]
+    length [] + length ys
+      = 0 + length ys  [(length).1]
+      = length ys      [(+).1]
+Passo indutivo:
+  Suponha que length (xs ++ ys) = length xs + length ys.
+  Calculamos:
+    length ((x : xs) ++ ys)
+      = length (x : (xs ++ ys))    [(++).2]
+      = 1 + length (xs ++ ys)      [(length).2]
+      = 1 + length xs + length ys  [H.I.]
+    length (x : xs) + length ys
+      = (1 + length xs) + length ys  [(length).2]
+      = 1 + length xs + length ys    [(+)-assoc]
+∎
+
+2024.2 IRI.1
+A.
+data Nat = O | S Nat
+data List a where
+  Nil  : List a
+  Cons : a → List a → List a
+map : (α → β) → List α → List β
+map f [] = []
+map f (x :: xs) = f x : (map f xs)
+filter : (α → Bool) → List α → List α
+filter _ [] = []
+filter p (x : xs)
+  | p x = x : filter p xs
+  | otherwise = filter p xs
+pwAdd : Num α ⇒ List α → List α → List α
+pwAdd xs ys = zipWith (+) xs ys
+foldr : (a → b → b) → b → [a] → b
+foldr f u [] = u
+foldr f u (x : xs) = f x (foldr f u xs)
+G.
+map f (xs ++ ys) = (map f xs) ++ (map f ys)
+sum (xs ++ ys) = sum xs + sum ys
+product (xs ++ ys) = product xs * product ys
+length (xs ++ ys) = length xs + length ys
+reverse (xs ++ ys) = reverse ys ++ reverse xs
+length (map f xs) = length xs
+sum (replicate n x) = n * x
+sum (map (+ k) ns) = sum ns + (length ns * k)
+sum (map (* k) ns) = sum ns * k
+product (map (* k) ns) = product ns * (k ^ length ns)
+P.
+map f (xs ++ ys) = (map f xs) ++ (map f ys)
+Por indução em xs.
+Base:
+  Calculamos:
+    map f ([] ++ ys)
+      = map f ys    [(++).1]
+    (map f []) ++ (map f ys)
+      = [] ++ (map f ys)    [(map).1]
+      = map f ys            [(++).1]
+Passo indutivo:
+  Suponha que map f (xs ++ ys) = (map f xs) ++ (map f ys).
+  Calculamos:
+    map f ((x : xs) ++ ys)
+      = map f (x : (xs ++ ys))          [(++).2]
+      = f x : map f (xs ++ ys)          [(map).2]
+      = f x : (map f xs) ++ (map f ys)  [H.I.]
+    (map f (x : xs)) ++ (map f ys)
+      = (f x : map f xs) ++ (map f ys)  [(map).2]
+      = f x : (map f xs) ++ (map f ys)  [(++).2]
+∎
+length (map f xs) = length xs
+Por indução em xs.
+Base:
+  Calculamos:
+    length (map f [])
+      = length []    [(map).1]
+Passo indutivo:
+  Suponha length (map f xs) = length xs.
+  Calculamos:
+    length (map f (x : xs))
+      = length (f x : map f xs)    [(map).2]
+      = 1 + length (map f xs)      [(length).2]
+      = 1 + length xs              [H.I.]
+    length (x : xs)
+      = 1 + length xs              [(length).2]
+∎
+length : (Integral i) ⇒ List α → i
+length [] = 0
+length (x : xs) = 1 + length xs
