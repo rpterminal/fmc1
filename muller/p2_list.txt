@@ -1,0 +1,104 @@
+1. somatórios e produtórios
+1.1. sum_{k = 1 to n} (3k + 1)
+  = sum_{k = 1 to n} (3k) + sum_{k = 1 to n} (1)
+  = 3 · sum_{k = 1 to n} (k) + sum_{k = 1 to n} (1)
+  = 3 · [n(n + 1)/2] + n
+  = (3n(n + 1) + 2n)/2
+  = (3n² + 5n)/2
+  = n(3n + 5)/2
+1.2. prod {k = 1 to n} ((k + 1) / k)
+  expandindo:
+   para k = 1, (1 + 1)/1 = 2/1 = 2
+   para k = 2, (2 + 1)/2 = 3/2
+   para k = 3, (3 + 1)/3 = 4/3
+  assim,
+   prod {k = 1 to n} ((k + 1) / k)
+   = 2 · 3/2 · 4/3 · ... · n / (n - 1) · (n + 1) / n
+  observa-se, então, que o numerador de um termo cancela o denominador do termo seguinte.
+  após os cancelamentos, sobram o denominador do primeiro termo, 1, e o numerador do último termo, n + 1.
+  portanto, o resultado final do produtório é n + 1.
+1.3. sum {k = 1 to n} (2k - 1) = n²
+  caso base: n = 1
+    sum {k = 1 to 1} (2k - 1)
+      = 2 · 1 - 1
+      = 2 - 1
+      = 1
+      = 1²
+  passo indutivo:
+    suponha que sum {k = 1 to n} (2k - 1) = n².
+    sum {k = 1 to n + 1} (2k - 1)
+      = sum {k = 1 to n} (2k - 1) + sum {k = n + 1 to n + 1} (2k - 1)
+      = sum {k = 1 to n} (2k - 1) + 2(n + 1) - 1
+      = n² + 2(n + 1) - 1
+      = n² + 2n + 1
+      = (n + 1)²
+∎
+1.4. prod {k = 1 to n} [(k + 1) / k] = n + 1
+  provado, sem querer, na 1.3.
+∎
+1.5. prod {k = 2 to n} (1 - 1 / k²)
+  tomando o termo:
+  1 - 1 / k²
+    = (k² - 1) / k²
+    = ((k + 1) / k) · ((k - 1) / k)
+  logo, prod {k = 2 to n} (1 - 1 / k²) = prod {k = 2 to n} [((k + 1) / k) · ((k - 1) / k)].
+  separando em dois produtórios, temos que
+    prod {k = 2 to n} [((k + 1) / k) · ((k - 1) / k)] = prod {k = 2 to n} ((k + 1) / k) · prod {k = 2 to n} ((k - 1) / k)
+  por 1.4., temos que prod {k = 2 to n} ((k + 1) / k) = (n + 1) / 2.
+  expandindo prod {k = 2 to n} ((k - 1) / k):
+    1/2 · 2/3 · 3/4 · ... · (n - 2) / (n - 1) · (n - 1) / n
+  observa-se, então, que o denominador de um termo cancela o numerador do termo anterior.
+  após os cancelamentos, sobram o numerador do primeiro termo, 1, e o denominador do último termo, n.
+  logo, prod {k = 2 to n} ((k + 1) / k) · prod {k = 2 to n} ((k - 1) / k)
+    = (n + 1) / 2 · 1 / n
+    = (n + 1) / 2n
+∎
+1.6. indução: prod {k = 1 to n} (1 + 2k) = (2n + 1)! / 2ⁿn!
+  caso base: n = 1
+    prod {k = 1 to 1} (1 + 2k)
+      = 1 + 2 · 1
+      = 1 + 2
+      = 3
+    (2n + 1)! / 2ⁿn!
+      = (2 · 1 + 1)! / 2¹ · 1!
+      = (2 + 1)! / 2 · 1
+      = 3!/2
+      = 3 · 1
+      = 3
+  passo indutivo: prod {k = 1 to n + 1} (1 + 2k) = (2(n + 1) + 1)! / 2^(n + 1) · (n + 1)!
+    suponha que prod {k = 1 to n} (1 + 2k) = (2n + 1)! / 2ⁿn!, tal que n ≥ 1.
+    prod {k = 1 to n + 1} (1 + 2k)
+      = prod {k = 1 to n} (1 + 2k) · prod {k = n + 1 to n + 1} (1 + 2k)
+      = prod {k = 1 to n} (1 + 2k) · (1 + 2(n + 1))
+      = ((2n + 1)! / 2ⁿn!) · (1 + 2(n + 1))
+      = ((2n + 1)! / 2ⁿn!) · (2n + 3)
+      = ((2n + 1)! · (2n + 3)) / 2ⁿn!
+    multiplicando por (2n + 2)/(2n + 2):
+      = [(2n + 1)! · (2n + 2) · (2n + 3)] / [(2^n · n!) · (2n + 2)]
+      = (2n + 3)! / [(2^n · n!) · 2(n + 1)]
+      = (2n + 3)! / [(2^n · 2) · (n! · (n + 1))]
+      = (2n + 3)! / [2^(n + 1) · (n + 1)!]
+∎
+1.7. sum {k = 1 to n} (1 / k(k + 1)) = 1 - 1 / (n + 1)
+  tomando (1 / k(k + 1)):
+    = ((k +  1) - k) / (k(k + 1))
+    = ((k + 1) / (k(k + 1))) - (k / (k(k + 1)))
+    = (1 / k) - (1 / (k + 1))
+  logo, sum {k = 1 to n} (1 / k(k + 1)) = sum {k = 1 to n} ((1 / k) - (1 / (k + 1))).
+  expandindo o somatório:
+    k = 1: 1/1 - 1/2
+    k = 2: + 1/2 - 1/3
+    k = 3: + 1/3 - 1/4
+    ⋮
+    k = n: + 1 / n - 1 / (n + 1)
+  observa-se, então, que a segunda parte de um termo cancela com a primeira parte do termo seguinte.
+  assim, sobra 1 - 1 / (n + 1).
+∎
+1.8. sum {k = 0 to n} (n choose k) = 2^n
+  pelo teorema binomial, tomando 1 ≔ x e 1 ≔ y, temos que:
+    i) (1 + 1)^n = sum {k = 0 to n} (n choose k) · 1 ^ (n - k) · 1 ^ k
+    ii) (1 + 1)^n = 2^n
+    iii) sum {k = 0 to n} (n choose k) · x ^ (n - k) · y ^ k = sum {k = 0 to n} (n choose k) · 1 ^ (n - k) · 1 ^ k. 
+    simplificando o termo: (n choose k) · 1 ^ (n - k) · 1 ^ k = (n choose k) · 1 · 1 = n choose k
+  portanto, sum {k = 0 to n} (n choose k) = 2^n.
+∎
