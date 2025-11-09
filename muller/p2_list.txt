@@ -102,3 +102,175 @@
     simplificando o termo: (n choose k) · 1 ^ (n - k) · 1 ^ k = (n choose k) · 1 · 1 = n choose k
   portanto, sum {k = 0 to n} (n choose k) = 2^n.
 ∎
+
+2. divisão euclidiana e congruências
+2.1. resto da divisão de 3^2025 por 5
+  fermatinho → 5 ∤ 3 ⇒ 3^(5 - 1) ≡ 1 (mod 5)
+  logo, 3^4 ≡ 1 (mod 5)
+  assim, vamos dividir 2025 por 4 para achar em que parte do ciclo se encaixa.
+    2025 = 4 · q + r
+    2025 = 4 · 506 + 1
+  logo, 3^2025 = 3^(4 · 506 + 1) = (3^4)^506 · 3
+  calculando:
+  (3^4)^506 · 3 (mod 5)
+    = 1^506 · 3 (mod 5)
+    = 1 · 3 (mod 5)
+    = 3 (mod 5)
+  portanto, 3^2025 ≡ 3 (mod 5).
+∎
+2.2. algarismo da unidade x : Int representado por sum_{k = 1 to 2013} (3 ^ k)
+  para encontrar o algarismo da unidade, nosso alvo será calcular x (mod 10)
+  calculando os primeiros termos da sequência 3 ^ k:
+    3^1 ≡ 3 (mod 10)
+    3^2 ≡ 9 (mod 10)
+    3^3 ≡ 27 ≡ 7 (mod 10)
+    3^4 ≡ 81 ≡ 1 (mod 10)
+    3^5 ≡ 3^4 · 3 ≡ 1 · 3 ≡ 3 (mod 10)
+  observa-se um ciclo de 4 termos que se repete: 3, 9, 7, 1.
+  ao somar um ciclo completo, obtemos 20, que tem resto 0 em módulo 10.
+  assim, vamos calcular o número de ciclos completos no número total de termos:
+    2013 = 4 · q + r
+    2013 = 4 · 503 + 1
+  a soma total será x = (q · (soma do ciclo)) + (termos r restantes), portanto:
+    x ≡ 503 · 20 + 3 (mod 10)
+    x ≡ 503 · 0 + 3 (mod 10)
+    x ≡ 3 (mod 10)
+∎
+2.3.
+a) 45 ≡ 9 (mod 12)
+  12 | 45 - 9
+  12 | 36
+  36 = 12 · 3
+  verdadeira.
+b) 123 ≡ 3 (mod 10)
+  10 | 123 - 3
+  10 | 120
+  120 = 10 · 12
+  verdadeira.
+c) 37 ≡ 2 (mod 5)
+  5 | 37 - 2
+  5 | 35
+  35 = 5 · 7
+  verdadeira.
+2.4.
+a) todo x : Int tal que x ≡ 4 (mod 6)
+  6 | x - 4
+  x - 4 = 6k
+  x = 6k + 4
+  S = {x ∈ ℤ | x = 6k + 4}
+b) todo x : Int tal que x ≡ 2 (mod 9)
+  9 | x - 2
+  x - 2 = 9k
+  x = 9k + 2
+  S = {x ∈ ℤ | x = 9k + 2}
+2.5.
+a) 7x ≡ 1 (mod 10)
+  7x ≡ 7 · 3 ≡ 21 ≡ 1 (mod 10)
+b) 3x ≡ 2 (mod 5)
+  3x ≡ 3 · 4 ≡ 12 ≡ 2 (mod 5)
+c) 8x ≡ 6 (mod 14)
+  mdc(8, 14) = 2, logo não existe a⁻¹.
+  como mdc(8, 14) | 6, existem mdc(8, 14) = 2 soluções.
+  podemos transformar 8x ≡ 6 (mod 14) em
+    4x ≡ 3 (mod 7)
+    4x ≡ 4 · 6 ≡ 24 ≡ 3 (mod 7)
+2.6. 4x ≡ 3 (mod 8) não tem solução. por que?
+  suponha que existe uma solução x para 4x ≡ 3 (mod 8).
+  assim, 8 | (4x - 3)
+    4x - 3 = 8k
+    3 = 4x - 8k
+    3 = 2(2x - 4k)
+  portanto, chegamos numa contradição, pois 3 teria de ser igual a um número par.
+∎
+2.7. a) { x ≡ 2 (mod 3), x ≡ 3 (mod 5), x ≡ 2 (mod 7)
+  { x = 3i + 2, x = 5j + 3, x = 7k + 2
+  substituindo na segunda equação:
+    3i + 2 ≡ 3 (mod 5)
+    3i ≡ 1 (mod 5)
+    3i ≡ 1 + 5 ≡ 6 (mod 5)
+  logo, i ≡ 2 (mod 5).
+  calculando:
+    x = 3i + 2
+      = 3(5j + 2) + 2
+      = 15j + 8
+  logo, x ≡ 8 (mod 15)
+  substituindo na terceira equação:
+    15j + 8 ≡ 2 (mod 7)
+    j + 1 ≡ 2 (mod 7)
+  logo, j ≡ 1 (mod 7).
+  calculando:
+    x = 15j + 8
+      = 15(7k + 1) + 8
+      = 105k + 23
+  logo, x ≡ 23 (mod 105).
+∎
+b) { x ≡ 1 (mod 3), 3x ≡ 1 (mod 4), 4x ≡ 2 (mod 5)
+  vamos manipular 3x ≡ 1 (mod 4):
+    3x ≡ 1 ≡ 1 + 4 + 4 ≡ 9 (mod 4)
+    x ≡ 3 (mod 4)
+  vamos manipular 4x ≡ 2 (mod 5):
+    4x ≡ 2 ≡ 2 + 5 + 5 ≡ 12 (mod 5)
+    x ≡ 3 (mod 5)
+  o sistema é equivalente, então, a { x ≡ 1 (mod 3), x ≡ 3 (mod 4), x ≡ 3 (mod 5).
+  { x ≡ 3i + 1, x ≡ 4j + 3, x ≡ 5k + 3
+  substituindo na segunda equação:
+    3i + 1 ≡ 3 (mod 4)
+    3i ≡ 2 (mod 4)
+    3i ≡ 6 (mod 4)
+  logo, i ≡ 2 (mod 4).
+  calculando:
+    x = 3i + 1
+      = 3(4j + 2) + 1
+      = 12j + 7
+  substituindo na terceira equação:
+    12j + 7 ≡ 3 (mod 5)
+    2j + 2 ≡ 3 (mod 5)
+    2j ≡ 1 (mod 5)
+    2j ≡ 1 + 5 ≡ 6 (mod 5)
+  logo, j ≡ 3 (mod 5) e j = 5k + 3.
+  calculando:
+    x = 12j + 7
+      = 12(5k + 3) + 7
+      = 60k + 43
+  logo, k ≡ 43 (mod 60).
+∎
+2.8. (∀x ímpar)[x² ≡ 1 (mod 8)]
+  seja x, a : Int tal que x = 2k + 1.
+  assim, x² ≡ (2k + 1)² ≡ 1 (mod 8).
+  tomando (2k + 1)², temos 4k² + 4k + 1 ≡ 1 (mod 8).
+  logo, 4k² + 4k ≡ 0 (mod 8) e, então, 4k(k + 1) ≡ 0 (mod 8).
+  assim, temos um produto de dois inteiros consecutivos, k · (k + 1), que é um número par. logo, podemos expressar k(k + 1) como 2m, para um inteiro m.
+  substituindo na congruência:
+    4(2m) ≡ 0 (mod 8)
+    8m ≡ 0 (mod 8)
+∎
+X2.9. (∀p primo)[x² ≡ -1 (mod p) ⇐⇒ p ≡ 1 (mod 4)]
+⇒:
+  suponha que x² ≡ -1 (mod p).
+  como p ∤ x, x^(p-1) ≡ 1 (mod p).
+2.10. a ≡ b (mod m) ∧ c ≡ d (mod m) ⇒ a + c ≡ b + d (mod m) ∧ ac ≡ bd (mod m)
+  sejam a, b, c, d, m : Int tais que a ≡ b (mod m) ∧ c ≡ d (mod m).
+  como a ≡ b (mod m), então m | (a - b).
+  logo, a - b = mk₁.
+  como c ≡ d (mod m), então m | (c - d).
+  logo, c - d = mk₂.
+  split.
+  parte L: a + c ≡ b + d (mod m)
+    pela definição, a + c ≡ b + d (mod m) é equivalente a m | (a + c) - (b + d).
+    manipulando (a + c) - (b + d), temos (a - b) + (c - d).
+    substituindo, temos mk₁ + mk₂ = mk.
+    logo, m(k₁ + k₂) = mk.
+    portanto, m | (a + c) - (b + d).
+    ∎
+  parte R: ac ≡ bd (mod m)
+    como a - b = mk₁, então a = mk₁ + b.
+    como c - d = mk₂, então c = mk₂ + d.
+    pela definição, ac ≡ bd (mod m) é equivalente a m | (ac - bd).
+    manipulando ac - bd, temos ac - bc + bc - bd.
+    logo, ac - bc + bc - bd = c(a - b) + b(c - d).
+    substituindo os termos, temos:
+      c(mk₁) + b(mk₂)
+      = m(ck₁ + bk₂)
+    portanto, m | (cmk₁ + bmk₂).
+    ∎
+∎
