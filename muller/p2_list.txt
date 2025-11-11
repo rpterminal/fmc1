@@ -389,3 +389,99 @@ logo,
   ⌊log_b(N)⌋ = d − 1
   1 + ⌊log_b(N)⌋ = d
 ∎
+3.8. maior número de 3 dígitos possível nas bases
+a) base 5
+  (444)_5
+b) base 8
+  (777)_8
+c) base 16
+  (FFF)_16
+3.9. b : Nat, menor N : Nat t.q. (N)_10 ≡ (121)_b
+  com (121)_b, podemos deduzir que o menor valor natural possível para b é 3.
+  logo, convertendo (121)_3 para base 10, acharemos N.
+    N = 1 · b^2 + 2 · b + 1
+      = 1 · 3^2 + 2 · 3 + 1
+      = 9 + 6 + 1
+      = 16
+∎
+
+4. lema de bezout
+4.1.
+a) 144x + 233y = 1
+  usando o algoritmo de euclides estendido:
+  r   q   x   y
+ 144  -   1   0
+ 233  -   0   1
+ 144  0   1   0
+ 89   1   -1  1
+ 55   1   2   -1
+ 34   1   -3  2
+ 21   1   5   -3
+ 13   1   -8  5
+ 8    1   13  -8
+ 5    1   -21 13
+ 3    1   34  -21
+ 2    1   -55 34
+ 1    1   89  -55 → mdc = 1, x = 89, y = -55
+ 0    2
+ portanto, solução geral: x = 89 + 233k, y = -55 - 144k
+b) 35x + 15y = 5
+  vamos dividir a equação por 5.
+  35x + 15y = 5 → 7x + 3y = 1
+  mdc(7, 3) = 1, então usaremos o algoritmo de euclides estendido:
+  r   q   x   y
+  7   -   1   0
+  3   -   0   1
+  1   2   1   -2  → mdc = 1, x = 1, y = -2
+  0   3
+  portanto, solução geral: x = 1 + 3k, y = -2 - 7k
+4.2. todo n : Int para qual existe x, y : Int com 28x + 36y = n
+  para aplicar o lema de bezout, precisamos de d = mdc(28, 36) e d | n.
+  calculando mdc(28, 36):
+    36 = 1 · 28 + 8
+    28 = 3 · 8 + 4
+    8 = 2 · 4 + 0
+  portanto, mdc(28, 36) = 4.
+  assim, para 4 | n, seja n = 4k, k : Int.
+∎
+4.3. resolva o sistema { 21x + 15y = 6, 14x + 10y = 4
+  dividindo i. por 3, temos 7x + 5y = 2.
+  dividindo ii. por 2, temos 7x + 5y = 2.
+  assim, o sistema é composto por uma só equação.
+  portanto, vamos encontrar todas as soluções inteiras da equação 7x + 5y = 2.
+  usando o algoritmo de euclides estendido para determinar a solubilidade e achar as soluções particulares:
+  r   q   x   y
+  7   -   1   0
+  5   -   0   1
+  2   1   1   -1
+  1   2   -2  3
+  0   2
+  temos que mdc(7, 5) = 1. como 1 | 2, x_0 = -2 e y_0 = 3.
+  portanto,
+    x = 5k + 2(-2) = 5k - 4
+    y = 2(3) - 7k = 6 - 7k
+∎
+4.4.
+  usando o algoritmo estendido de euclides para achar mdc(51, 30):
+  r   q   x   y
+  51  -   1   0
+  30  -   0   1
+  21  1   1   -1
+  9   1   -1  2
+  3   2   3   -5
+  0   3
+  temos que mdc(51, 30) = 3. como 3 ∤ 5, a equação não possui soluções inteiras.
+∎
+4.5.
+  usando o algoritmo estendido de euclides para achar mdc(101, 37):
+  r   q   x   y
+  101 -   1   0
+  37  -   0   1
+  27  2   1   -2
+  10  1   -1  3
+  7   2   3   -8
+  3   1   -4  11
+  1   2   11  -30
+  0   3
+  logo, x = 11 e y = -30.
+∎
