@@ -1,0 +1,68 @@
+1. (∀n : Int)[6 | n(n + 1)(n + 2)]
+para demonstrar divisibilidade por 6, podemos demonstrar que a expressão é divisível por 2 e 3. como mdc(2, 3) = 1, se for divisível por ambos, será divisível por 6.
+parte A: 2 | n(n + 1)(n + 2)
+  separamos em casos:
+  caso 1: n ≡ 0 (mod 2)
+    n(n + 1)(n + 2) ≡ 0(0 + 1)(0 + 2) ≡ 0 (mod 2)
+  caso 2: n ≡ 1 (mod 2)
+    n(n + 1)(n + 2) ≡ 1(1 + 1)(1 + 2) ≡ 1(2)(3) ≡ 1(0)(3) ≡ 0 (mod 2).
+  portanto, em todos os casos a expressão é divisível por 2.
+parte B: 3 | n(n + 1)(n + 2)
+  separamos em casos:
+  caso 1: n ≡ 0 (mod 3)
+    n(n + 1)(n + 2) ≡ 0(0 + 1)(0 + 2) ≡ 0 (mod 3)
+  caso 2: n ≡ 1 (mod 3)
+    n(n + 1)(n + 2) ≡ 1(1 + 1)(1 + 2) ≡ 6 ≡ 2 · 3 ≡ 2 · 0 ≡ 0 (mod 3).
+  caso 3: n ≡ 2 (mod 3)
+    n(n + 1)(n + 2) ≡ 2(2 + 1)(2 + 2) ≡ 2(3)(5) ≡ 2(0)(5) ≡ 0 (mod 3).
+  portanto, em todos os casos a expressão é divisível por 3.
+∎
+
+2. n | (n - 1)! ⇒ número composto
+vamos provar por contrapositiva: se n é primo (assumindo n > 1), então n ∤ (n - 1)!.
+suponha que n é primo.
+pelo teorema de wilson, temos que (n - 1)! ≡ -1 (mod n).
+pela definição, isso significa que (n - 1)! deixa resto -1.
+se n | (n - 1)!, teríamos (n - 1)! ≡ 0 (mod n).
+como -1 ≠ 0, chegamos a uma contradição, concluindo que n ∤ (n - 1)!.
+portanto, se a contrapositiva é verdadeira, provamos n | (n - 1)! ⇒ número composto.
+∎
+
+3. (∀n, m : Int)[n, m > 0 ∧ n > m][n = mq + r ⇒ 2^n - 1 = (2^m - 1)q + (2^r - 1)]
+(dica: k = 1 · (k - 1) + 1, logo k ≡ 1 (mod k - 1))
+se k = 2^m, então k - 1 = 2^m - 1.
+logo, 2^m ≡ 1 (2^m - 1).
+assim, nosso alvo é calcular 2^n - 1 (mod 2^m - 1).
+pela premissa, temos que:
+  2^n - 1
+  = 2^(mq + r) - 1
+  = (2^m)^q · 2^r - 1
+aplicando a congruência de 2^m (mod 2^m - 1), temos:
+  (2^m)^q · 2^r - 1 (mod 2^m - 1)
+  = 1^q · 2^r - 1 (mod 2^m - 1)
+  = 1 · 2^r - 1 (mod 2^m - 1)
+  = 2^r - 1 (mod 2^m - 1)
+logo, 2^n - 1 ≡ 2^r - 1 (mod 2^m - 1).
+pela definição da divisão de euclides, sabemos que r < m, logo 2^r - 1 < 2^m - 1 e é, portanto, o resto.
+∎
+
+4. (∀n ≥ 8)(∃x, y : Nat)[n = 3x + 5y]
+prova por indução em n.
+casos base:
+  caso base 1: n = 8
+    8 = 3 · 1 + 5 · 1
+  caso base 2: n = 9
+    9 = 3 · 3 + 5 · 0
+  caso base 3:
+    10 = 3 · 0 + 5 · 2
+passo indutivo:
+  suponha que n = 3x + 5y é verdadeiro para todo inteiro j no intervalo 8 ≤ j ≤ k, para algum k ≥ 10.
+  nosso alvo é, então, demonstrar k + 1 = 3x' + 5y'.
+  pela hipótese indutiva, temos que j = k - 2 ≥ 10 - 2 = 8.
+  como k - 2 ≥ 8, o número k - 2 está dentro do intervalo da HI. assim, sabemos que k - 2 = 3x + 5y é válido para dois inteiros x, y.
+  somando 3 em ambos os lados da igualdade:
+    (k - 2) + 3 = (3x + 5y) + 3
+    k + 1 = 3x + 3 + 5y
+    k + 1 = 3(x + 1) + 5y
+  portanto, k + 1 = 3x' + 5y', sendo x' = x + 1 e y' = y.
+∎
