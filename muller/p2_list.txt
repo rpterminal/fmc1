@@ -485,3 +485,97 @@ b) 35x + 15y = 5
   0   3
   logo, x = 11 e y = -30.
 ∎
+
+5. pequeno teorema de fermat
+5.1.
+a) 12^50 (mod 13)
+  p = 13, a = 12.
+  pelo ptf, temos que 12^12 ≡ 1 (mod 13).
+  dividindo o expoente por p - 1:
+    50 = 4 · 12 + 2
+  logo, 12^50 ≡ 12^2 ≡ 144 (mod 13).
+  assim,
+    144 = 13 · 11 + 1
+  então 144 ≡ 1 (mod 13).
+b) 9^100 (mod 11)
+  p = 11, a = 9
+  pelo ptf, temos que 9^10 ≡ 1 (mod 11).
+  dividindo o expoente por p - 1:
+    100 = 10 · 10 + 0
+  logo, 9^100 ≡ 9^0 ≡ 1 (mod 11).
+c) 3^2025 (mod 7)
+  p = 7, a = 3.
+  pelo ptf, temos que 3^6 ≡ 1 (mod 7).
+  dividindo o expoente por p - 1:
+    2025 = 6 · 337 + 3
+  logo, 3^2025 ≡ 3^3 ≡ 27 (mod 7).
+  assim,
+    27 = 7 · 3 + 6
+  então 27 ≡ 6 (mod 13).
+d) 7^222 (mod 23)
+  p = 23, a = 7.
+  pelo ptf, temos que 7^22 ≡ 1 (mod 23).
+  dividindo o expoente por p - 1:
+    222 = 22 · 10 + 2
+  logo, 7^222 ≡ 7^2 ≡ 49 (mod 23)
+  assim,
+    49 = 23 · 2 + 3
+  então 49 ≡ 3 (mod 23).
+5.2. último dígito de 7^222
+  alvo: 7^222 (mod 10)
+  encontrando o ciclo dos restos:
+    7^1 ≡ 7 (mod 10)
+    7^2 ≡ 49 ≡ 9 (mod 10)
+    7^3 ≡ 7^2 · 7 ≡ 9 · 7 ≡ 63 ≡ 3 (mod 10)
+    7^4 ≡ 7^3 · 7 ≡ 3 · 7 ≡ 21 ≡ 1 (mod 10)
+    7^5 ≡ 7^4 · 7 ≡ 1 · 7 ≡ 7 (mod 10)
+  assim, o padrão (7, 9, 3, 1) se repete a cada 4 termos.
+  dividindo 222 por 4, temos:
+    222 = 4 · 55 + 2
+  logo, 7^222 ≡ 7^2 ≡ 9 (mod 10).
+  portanto, o último dígito de 7^222 é 9.
+∎
+5.3. 224 (mod 15)
+  como 15 = 3 · 5, temos 224 (mod 3) e 224 (mod 5).
+  o objetivo é, então, achar um x que satisfaça o sistema
+    { x ≡ 224 (mod 3), x ≡ 224 (mod 5)
+  para x ≡ 224 (mod 3):
+    x ≡ 8 (mod 3)   [critério de div. de 3]
+    x ≡ 2 (mod 3)
+  para x ≡ 224 (mod 5):
+    x ≡ 4 (mod 5)   [critério de div. de 5]
+  assim, o sistema simplificado é
+    { x ≡ 2 (mod 3), x ≡ 4 (mod 5)
+  portanto, o módulo maior entre 0 e 14 que satisfaz ambas as condições é 14.
+∎
+X5.4. últimos dois algarismos
+  como 100 = 4 · 25 e mdc(4, 25) = 1, ao encontrar resto módulo 4 e 25, encontramos resto módulo 100.
+a) 2^999 (mod 100)
+  i. 2^999 (mod 4)
+    2^2 = 4 ≡ 0 (mod 4)
+    2^3 = 8 ≡ 0 (mod 4)
+    para qualquer k ≥ 2, 2^k ≡ 0 (mod 4). logo, 2^999 ≡ 0 (mod 4).
+  ii. 2^999 (mod 25)
+5.5. 11 | 20^15 - 1 ⇐⇒ 20^15 ≡ 1 (mod 11)
+  vamos simplificar a base para o menor resto.
+    20 = 1 · 11 + 9
+  logo, 20 ≡ 9 (mod 11).
+  pelo ptf, temos que 9^10 ≡ 1 (mod 11).
+  simplificando o expoente, temos:
+    15 = 1 · 10 + 5
+  logo, 9^15 ≡ 9^5 (mod 11).
+  como 9 ≡ -2 (mod 11), temos (-2)^5 ≡ -32 (mod 11). calculando -32 (mod 11):
+    32 = 2 · 11 + 10
+  então 32 ≡ 10 ≡ -1 (mod 11).
+  logo, -32 ≡ -(-1) ≡ 1 (mod 11).
+∎
+5.6. p, q primos: p^q + q^p ≡ p + q (mod pq)
+  pelo tcr, temos que p^q + q^p ≡ p + q (mod pq) ⇐⇒ p^q + q^p ≡ p + q (mod p) ∧ p^q + q^p ≡ p + q (mod q).
+  parte L: p^q + q^p ≡ p + q (mod p)
+    como p ≡ 0 (mod p), temos que:
+      p^q + q^p ≡ p + q (mod p)
+      = 0 + q^p ≡ 0 + q (mod p)
+      = q^p ≡ q (mod p)
+  parte R: p^q + q^p ≡ p + q (mod q)
+    similar. logo, p^q ≡ p (mod q).
+∎
