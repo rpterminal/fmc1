@@ -1,0 +1,56 @@
+1. axiomas dos reais
+1.1. a < b ⇒ a + c < b + c
+Como a < b, logo b - a é positivo.
+Basta demonstrar que (b + c) - (a + c) é positivo.
+(b + c) - (a + c)
+  = b + c - a - c
+  = b - a + (c - c)
+  = b - a
+∎
+1.2. a < b ∧ c > 0 ⇒ ac < bc
+Como a < b, logo b - a é positivo.
+Como c > 0, logo c é positivo.
+Basta demonstrar que bc - ac é positivo.
+Assim, bc - ac = c(b - a), logo é o produto de dois números positivos.
+Portanto, bc - ac é positivo.
+∎
+1.3. a < b ∧ c < 0 ⇒ ac > bc
+Como a < b, logo b - a é positivo.
+Como c < 0, logo c é negativo e -c é positivo.
+Basta demonstrar que ac - bc é positivo.
+Assim, ac - bc = c(a - b).
+Multiplicando por -1, temos -c(b - a) = ac - bc, logo é o produto de dois números positivos.
+Portanto, ac - bc é positivo.
+∎
+1.11. a ≠ 0 ⇒ a² > 0
+Pela tricotomia dos reais, vamos separar em casos.
+Caso 1: a > 0
+Pelo axioma do fechamento da multiplicação em ℝ⁺ temos que a · a > 0 ⇒ a² > 0.
+Imediato.
+Caso 2: a < 0
+Se a < 0, então -a > 0.
+Como -a é positivo, (-a) · (-a) é positivo, logo:
+  (-a) · (-a) > 0
+  a² > 0
+∎
+1.13.
+Considere A = {x ∈ ℚ | x² < 2}.
+É limitado, pois 2 é uma cota superior.
+Mas, não tem supremo em ℚ, pois o teto seria √2, e √2 ∉ ℚ.
+1.17.
+A = {(-1)^n + 1/n : n ∈ ℕ}
+Analisando os termos de acordo com a paridade de n, temos que:
+i) Se n é par, então n ≥ 2 e (-1)^n = 1.
+  Os elementos são da forma x_n = 1 + 1/n.
+  Assim, o maior valor ocorre quando n é o menor possível, com n = 2.
+    x_2 = 1 + 1/2 = 1,5
+  À medida que n cresce, 1/n diminui, e x_n se aproxima de 1.
+  Assim, 1 < x_n ≤ 1,5 (n par).
+ii) Se n é ímpar, então n ≥ 1 e (-1)^n = -1.
+  Os elementos são da forma x_n = -1 + 1/n.
+  O maior valor ocorre quanto n é o menor possível, com n = 1.
+    x_1 = -1 + 1/1 = 0
+  À medida que n cresce, 1/n diminui, e x_n se aproxima de -1.
+  Assim, -1 < x_n < 0 (n ímpar).
+Logo, sup A = 1,5 e inf A = -1.
+∎

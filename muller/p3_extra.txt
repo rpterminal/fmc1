@@ -1,0 +1,25 @@
+3. Sup e inf de A = {2^-p + 3^-q + 5^-r | p, q, r ∈ ℤ⁺*}
+Para a soma ser a maior possível, os denominadores 2^p, 3^q e 5^r precisam ser os menores possíveis.
+Assim, o menor inteiro positivo para p, q, r é 1.
+Calculando:
+  1/2^1 + 1/3^1 + 1/5^1
+    = 1/2 + 1/3 + 1/5
+    = (15 + 10 + 6)/30
+    = 31/30
+Logo, sup A = 31/30.
+Para a soma ser a menor possível, os denominadores precisam ser os maiores possíveis.
+Com p, q, r → ∞, 1/2^p + 1/3^q + 1/5^r → 0.
+Logo, inf A = 0.
+∎
+4. √2 + √3 ∈ 𝕀
+Suponha que x = √2 + √3 ∈ ℚ.
+Logo, quaisquer operações que realizarmos em x resultarão em um ∈ ℚ.
+Elevando ambos os lados por 2, calculamos:
+  x² = (√2 + √3)²
+    = 2 + 2√2√3 + 3
+    = 5 + 2√6
+  x² - 5 = 2√6
+  (x² - 5)/2 = √6
+Portanto, como √6 ∈ 𝕀, um número ℚ teria de ser igual a um 𝕀.
+Contradição.
+∎
