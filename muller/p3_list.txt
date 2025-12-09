@@ -54,3 +54,14 @@ ii) Se n é ímpar, então n ≥ 1 e (-1)^n = -1.
   Assim, -1 < x_n < 0 (n ímpar).
 Logo, sup A = 1,5 e inf A = -1.
 ∎
+
+3. sequências
+3.6. a_1 = 1, a_n+1 = 1/2(a_n + 2/a_n) é convergente e encontre o limite
+como (a_n)_n é convergente, ambos a_n e a_n+1 tendem a L.
+substituindo a_n e a_n+1 por L, temos:
+  L = 1/2(L + 2/L)
+  2L = L + 2/L
+  L = 2/L
+  L² = 2
+  L = √2
+∎

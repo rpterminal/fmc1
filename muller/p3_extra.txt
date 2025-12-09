@@ -1,4 +1,47 @@
-3. Sup e inf de A = {2^-p + 3^-q + 5^-r | p, q, r ∈ ℤ⁺*}
+1.
+Suponha que lim a_n+1 = lim a_n = L.
+Substituindo na equação, temos:
+  L = L/2 + 3
+  2L = L + 6
+  L = 6
+Portanto, o limite da sequência convergente é 6.
+∎
+
+2.
+a)
+Caso base: n = 0
+  Como s_0 = √2, logo s_0 < 2.
+Passo indutivo:
+  Suponha que para um certo k, a desigualdade s_k < 2 vale.
+  Substituindo s_k em s_k+1, temos:
+    s_k+1 = √(2 + s_k)
+  Pela hipótese, sabemos que s_k < 2, logo:
+    s_k+1 < √(2 + 2)
+    s_k+1 < √4
+    s_k+1 < 2
+∎
+b)
+Pelo Teorema da Convergência Monótona, temos que toda sequência que é crescente e limitada superiormente converge.
+Pela letra a), já provamos que (s_n)_n é limitada superiormente por 2. Logo, basta demonstrar que s_n+1 > s_n para todo n.
+Por indução em n,
+Caso base: n = 0
+  Verificando se s_1 > s_0, temos que s_0 = √2 ≈ 1,41.
+  Calculando s_1:
+    s_1 = √(2 + 1,41)
+      ≈ 1,84
+  Portanto, s_1 > s_0.
+Passo indutivo:
+  Suponha que s_k+1 > s_k.
+  Substituindo s_k+1 em s_k+2, temos:
+    s_k+2 = √(2 + s_k+1)
+  Partindo da hipótese, temos:
+    s_k+1 > s_k
+    2 + s_k+1 > 2 + s_k
+    √(2 + s_k+1) > √(2 + s_k)
+    s_k+2 > s_k+1
+∎
+
+3.
 Para a soma ser a maior possível, os denominadores 2^p, 3^q e 5^r precisam ser os menores possíveis.
 Assim, o menor inteiro positivo para p, q, r é 1.
 Calculando:
@@ -11,15 +54,16 @@ Para a soma ser a menor possível, os denominadores precisam ser os maiores poss
 Com p, q, r → ∞, 1/2^p + 1/3^q + 1/5^r → 0.
 Logo, inf A = 0.
 ∎
-4. √2 + √3 ∈ 𝕀
+
+4.
 Suponha que x = √2 + √3 ∈ ℚ.
 Logo, quaisquer operações que realizarmos em x resultarão em um ∈ ℚ.
-Elevando ambos os lados por 2, calculamos:
+Elevando ambos os lados ao quadrado, calculamos:
   x² = (√2 + √3)²
     = 2 + 2√2√3 + 3
     = 5 + 2√6
   x² - 5 = 2√6
   (x² - 5)/2 = √6
 Portanto, como √6 ∈ 𝕀, um número ℚ teria de ser igual a um 𝕀.
-Contradição.
+Absurdo.
 ∎
