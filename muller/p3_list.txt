@@ -55,7 +55,44 @@ ii) Se n é ímpar, então n ≥ 1 e (-1)^n = -1.
 Logo, sup A = 1,5 e inf A = -1.
 ∎
 
+2. valores absolutos
+2.1.
+Seja x = (x - y) + y.
+Pela desigualdade triangular clássica, temos:
+  |(x - y) + y| ≤ |x - y| + |y|
+  |(x - y) + y| - |y| ≤ |x - y|
+  |x| - |y| ≤ |x - y|
+∎
+2.3.
+Seja x = (x + y) - y.
+Pela desigualdade triangular clássica, temos:
+  |(x + y) - y| ≤ |x + y| + |-y|
+  |(x + y) - y| ≤ |x + y| + |y|
+  |(x + y) - y| - |y| ≤ |x + y|
+  |x| - |y| ≤ |x + y| (Equação 1)
+  |y| - |x| ≤ |y + x|
+  |y| - |x| ≤ |x + y| (Equação 2)
+Se |x + y| é maior que A (Equação 1) e também maior que -A (Equação 2), então ele é obrigatoriamente maior que o módulo de A.
+Logo:
+  ||x| - |y|| ≤ |x + y|
+∎
+
 3. sequências
+3.4.
+a) a_n = (3n + 1)/(2n - 5)
+  Quando n → ∞, analisaremos os termos de maior grau, 3n e 2n.
+  Dividindo tudo por n em cima e embaixo, temos:
+    (3n + 1)/(2n - 5)
+      = (3 + 1/n)/(2 - 5/n)
+      = 3/2
+  ∎
+d) a_n = √(n + 1) - √n
+  Quando n → ∞, ∞ - ∞ é uma indeterminação. Multiplicando pelo conjugado, temos:
+    (√(n + 1) - √n)/1 · (√(n + 1) + √n)/(√(n + 1) + √n)
+      = (n + 1 - n)/(√(n + 1) + √n)
+      = 1/(√(n + 1) + √n)
+      = 0
+  ∎
 3.6. a_1 = 1, a_n+1 = 1/2(a_n + 2/a_n) é convergente e encontre o limite
 como (a_n)_n é convergente, ambos a_n e a_n+1 tendem a L.
 substituindo a_n e a_n+1 por L, temos:
@@ -64,4 +101,58 @@ substituindo a_n e a_n+1 por L, temos:
   L = 2/L
   L² = 2
   L = √2
+∎
+3.16. Usando o Teorema do Confronto para mostrar que lim n → ∞ (n sin(1/n)) = 1
+Seja x = 1/n.
+Tomando a desigualdade sin x < x < tan x, dividindo por sin x e invertendo temos que:
+  (sin x)/(sin x) < x/(sin x) < (tan x)/(sin x)
+  cos x < (sin x)/x < 1
+  cos 1/n < n · sin 1/n < 1
+Aplicando o limite nos termos dos extremos, temos:
+  ←) lim n → ∞ cos 1/n = cos 0 = 1
+  →) lim n → ∞ 1 = 1
+Portanto, pelo Teorema do Confronto, lim n → ∞ (n sin(1/n)) = 1.
+∎
+
+4. subsequências
+4.4. a_n = (-1)^n + 1/n
+Separando em casos a partir da paridade de n:
+i) n par: n = 2k
+  Temos a_2k = 1 + 1/2k.
+  Quando k → ∞, temos a_2k = 1 + 0.
+  Logo, L = 1.
+ii) n ímpar: n = 2k - 1
+  Temos a_2k-1 = -1 + 1/(2k - 1).
+  Quando k → ∞, temos a_2k-1 = -1 + 0.
+  Logo, L = -1.
+Portanto, o lim sup é 1 e o lim inf é -1.
+∎
+
+5. arquimedeanas
+5.3. lim n → ∞ 1/n = 0
+Dado um ε > 0 arbitrário, considere o número real 1/ε.
+Pela Propriedade Arquimediana, existe um número natural n tal que:
+  n > 1/ε
+Como n e ε > 0, podemos inverter a desigualdade:
+  1/n < ε
+Satisfazendo a definição de limite.
+Portanto, lim n → ∞ 1/n = 0.
+∎
+5.6. a_n = n^(1/n) converge ou diverge?
+Sabemos que para n ≥ 1, temos n^(1/n) ≥ 1.
+Vamos representar n^(1/n) como sendo 1 mais uma "sobra" positiva h_n, onde h_n ≥ 0:
+  n^(1/n) = 1 + h_n
+Elevando ambos os lados à potência n, temos:
+  n = (1 + h_n)^n
+Expandindo o lado direito pelo Binômio de Newton, temos:
+  n = 1 + n · h_n + [n(n - 1)/2] · (h_n)^2 + ... + (h_n)^n
+Como todos os termos são positivos, o valor total n é maior que qualquer um dos singulares termos dessa soma. Isolando o terceiro termo numa desigualdade, temos:
+  n > [n(n - 1)/2] · (h_n)^2
+  1 > [(n - 1)/2] · (h_n)^2
+  2/(n - 1) > (h_n)^2
+  h_n < √(2/(n - 1))
+Sabemos que h_n > 0 e h_n < √(2/(n - 1)). Quando n → ∞, √(2/(n - 1)) tende a 0. Logo, h_n → 0.
+Voltando à definição original:
+  lim n^(1/n) = lim (1 + h_n) = 1 + 0 = 1
+Portanto, a expressão converge para 1.
 ∎
