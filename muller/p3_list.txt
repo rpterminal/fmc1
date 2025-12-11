@@ -88,6 +88,20 @@ b) crescente e não cotada
 a_n = n
 c) alternada e convergente
 a_n = [(-1)^n]/n
+3.3. unicidade do limite
+Suponha dois limites a_n → L_1 e a_n → L_2 tais que L_1 ≠ L_2.
+Seja d = |L_1 - L_2| > 0.
+Seja ε = d/2.
+Como a_n → L_1, existe N_1 tal que |a_n - L_1| < ε.
+Como a_n → L_2, existe N_2 tal que |a_n - L_2| < ε.
+Seja N = max(N_1, N_2). Para todo n > N, temos:
+  |L_1 - L_2| ≤ |L_1 - a_n| + |a_n - L_2|
+Substituindo pelas desigualdades dos limites:
+  |L_1 - L_2| < ε + ε
+Substituindo o valor de ε = d/2:
+  |L_1 - L_2| < d/2 + d/2 = d
+Absurdo, pois d < d. Logo, L_1 = L_2.
+∎
 3.4.
 a) a_n = (3n + 1)/(2n - 5)
   Quando n → ∞, analisaremos os termos de maior grau, 3n e 2n.
@@ -133,6 +147,22 @@ b) lim(a_n + b_n) = A + B
   Para todo n > N:
     |(a_n + b_n) - (A + B)| ≤ |a_n - A| + |b_n - B| < ε/2 + ε/2 = ε
 ∎
+c) lim (a_n · b_n) = A · B
+  Seja ε > 0 qualquer.
+  Basta demonstrar |a_n · b_n - A · B|.
+  Calculamos:
+    |a_n · b_n - a_n · B + a_n · B - A · B|
+      = |a_n(b_n - B) + B(a_n - A)|
+  Pela desigualdade triangular, temos:
+    |a_n(b_n - B) + B(a_n - A)| ≤ |a_n(b_n - B)| + |B(a_n - A)|
+  Como a_n converge, existe um real K > 0 tal que |a_n| < K para todo n, e como a_n → A, existe um N_1 a partir do qual |a_n - A| < ε/(2(|B|+1)).
+  Similarmente, como b_n → B, existe um N_2 a partir do qual |b_n - B| < ε/2K.
+  Substituindo na desigualdade:
+    < K · |b_n - B| + |B| · |a_n - A|
+  Tome N = max(N_1, N_2). Para todo n > N:
+    |a_n(b_n - B) + B(a_n - A)| < K · (ε/2K) + |B| · (ε/2(|B|+1)) ≤ ε/2 + ε/2 = ε
+  Logo, |a_n · b_n - A · B| < ε.
+∎
 c)
 3.6. a_1 = 1, a_n+1 = 1/2(a_n + 2/a_n) é convergente e encontre o limite
 como (a_n)_n é convergente, ambos a_n e a_n+1 tendem a L.
@@ -162,6 +192,23 @@ Como ε é positivo, sabemos que 0 < ε. Portanto:
 3.15.
 a) Converge.
 b) Diverge.
+c)
+A série é uma série geométrica de razão r = 1/2.
+Como uma série geométrica Σ r^n converge se |r| < 1, logo a série converge.
+Calculamos:
+  (1/2)/(1 - r)
+    = (1/2)/(1 - 1/2)
+    = (1/2)/(1/2)
+    = 1
+∎
+d)
+Expandindo a soma para análise, temos:
+  -1 + 1 - 1 + 1 - 1 + 1 ...
+Assim, a cada dois termos, resulta-se um 0.
+Como n vai ao infinito, a paridade de n é inconclusiva.
+Para uma série convergir, lim a_n = 0.
+Portanto, como a série oscila entre -1 e 0, ela diverge.
+∎
 3.16. Usando o Teorema do Confronto para mostrar que lim n → ∞ (n sin(1/n)) = 1
 Seja x = 1/n.
 Tomando a desigualdade sin x < x < tan x, dividindo por sin x e invertendo temos que:
@@ -175,6 +222,19 @@ Portanto, pelo Teorema do Confronto, lim n → ∞ (n sin(1/n)) = 1.
 ∎
 
 4. subsequências
+4.1.
+Seja a sequência a_n = (-1)^n + 1/n.
+A sequência diverge pois oscila aproximando-se de 1 e -1 de acordo com a paridade de n.
+Tomaremos a subsequência dos índices pares, n_k = 2k para um k natural qualquer.
+Calculamos:
+  a_2k = (-1)^2k + 1/2k = 1 + 1/2k
+Portanto, quando k → ∞, 1/2k → 0, logo a subsequência converge para 1.
+∎
+4.2.
+Verdadeiro. É a afirmação do Teorema de Bolzano-Weierstrass.
+4.3.
+Falso. Contraexemplo: a_n = (-1)^n + 1/n
+Possui subsequência convergente com n = 2k, mas é divergente devido a (-1)^n, que oscila entre -1 e 1, fazendo a sequência oscilar entre valores próximos de -1 e 1.
 4.4. a_n = (-1)^n + 1/n
 Separando em casos a partir da paridade de n:
 i) n par: n = 2k
